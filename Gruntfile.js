@@ -2,9 +2,6 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     watch: {
-      options: {
-        livereload: true
-      },
       sass: {
         files: "app/scss/*.scss",
         tasks: ['sass']
@@ -29,10 +26,10 @@ module.exports = function(grunt) {
       dist: {
         options: {
           sourcemap: 'none',
-          files: {
-          // destination          // source file
-            "app/css/styles.css" : "app/scss/styles.scss"
-          }
+        },
+        files: {
+        // destination          // source file
+          "app/css/styles.css" : "app/scss/styles.scss"
         }
       }
     },
