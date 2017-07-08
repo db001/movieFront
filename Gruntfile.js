@@ -2,6 +2,9 @@ module.exports = function(grunt) {
   grunt.initConfig({
 
     watch: {
+      options: {
+        livereload: true
+      },
       sass: {
         files: "app/scss/*.scss",
         tasks: ['sass']
