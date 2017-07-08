@@ -9,8 +9,8 @@
   "author": "db",
   "license": "ISC",
   "repository": {
-      "type": "git",
-      "url": ""
+    "type": "git",
+    "url": ""
   },
   "devDependencies": {
     "eslint": "^3.13.0",
