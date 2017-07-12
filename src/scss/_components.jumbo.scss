@@ -1,0 +1,17 @@
+.jumbo {
+    background-image: url('/app/images/dashboard.jpg');
+    background-size: cover;
+    color: $header-color;
+    padding: 20px;
+
+    h1, h3 {
+        margin: 0;
+    }
+
+    span {
+        background-color: rgba(128, 128, 128, 0.5);
+        width: auto;
+        height: auto;
+        padding: 0 5px;
+    }
+}

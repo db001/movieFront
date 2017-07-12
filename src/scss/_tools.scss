@@ -1,0 +1,16 @@
+// Globally used mixins & functions
+// Should no output any CSS
+
+// Example
+/*
+@mixin transition($trans-params) {
+    -webkit-transition: $trans-params;
+    -moz-transition: $trans-params;
+    -o-transition: $trans-params;
+    transition: $trans-params;
+}
+
+// Usage:
+@include transition(all 0.25s ease);
+
+*/

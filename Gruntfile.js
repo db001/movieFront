@@ -1,18 +1,25 @@
 module.exports = function(grunt) {
-  grunt.initConfig({
+  grunt.initConfig({    
 
     watch: {
       sass: {
-        files: "app/scss/*.scss",
+        files: "src/scss/*.scss",
         tasks: ['sass']
-      },
-      scripts: {
-        files: ['app/**/*.js'],
-        tasks: ['eslint'],
+        },
+      css: {
+        files: ['src/css/*.css'],
+        tasks: ['postcss'],
         options: {
           spawn: false
-        },
+        }  
       },
+      scripts: {
+        files: ['src/**/*.js'],
+        tasks: ['eslint', 'uglify'],
+        options: {
+          spawn: false
+        }      
+      }
     },
 
     eslint: {
@@ -24,13 +31,36 @@ module.exports = function(grunt) {
 
     sass: {
       dist: {
-        options: {
-          sourcemap: 'none',
-        },
         files: {
-        // destination          // source file
-          "app/css/styles.css" : "app/scss/styles.scss"
+          // destination          // source file
+          "src/css/styles.css" : "src/scss/styles.scss"
         }
+      }
+    },
+
+    uglify: {
+      options: {
+        mangle: false
+      },
+      my_target: {
+        files: {
+          'app/scripts/ugly.js': 'src/scripts/sample.js'
+        }
+      }
+    },
+
+    postcss: {
+      options: {
+        map: false,
+        processors: [
+          // require('pixrem')(), //add fallbacks for rem units
+          require('autoprefixer')({browsers: 'last 2 versions'}), // add prefixes from specific browsers
+          // require('cssnano')() // minify result
+        ]
+      },
+      dist: {
+        src: 'src/css/*.css',
+        dest: 'app/css/prefixed.css'
       }
     },
 
@@ -50,15 +80,26 @@ module.exports = function(grunt) {
           }
         }
       }
+    },
+
+    bsReload: {
+      css: {
+        reload: "prefixed.css"
+      },
+      all: {
+        reload: true
+      }
     }
 
   });
 
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-eslint');
-  grunt.registerTask('default', ['eslint', 'sass', 'browserSync', 'watch']);
+  grunt.registerTask('default', ['eslint', 'sass', 'uglify', 'postcss', 'browserSync', 'watch']);
 
 };
 
