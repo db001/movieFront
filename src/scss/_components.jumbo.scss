@@ -1,15 +1,20 @@
 .jumbo {
-    background-image: url('/app/images/dashboard.jpg');
+    background: url('/app/images/dashboard.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
     color: $header-color;
     padding: 20px;
 
-    h1, h3 {
+    a {
+        font-size: 12px;
+    }
+
+    h3, h5, h6 {
         margin: 0;
     }
 
     span {
-        background-color: rgba(128, 128, 128, 0.5);
+        background-color: rgba(128, 128, 128, 0.75);
         width: auto;
         height: auto;
         padding: 0 5px;

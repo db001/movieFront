@@ -20,14 +20,17 @@ html, body {
   -webkit-margin-after: 0; }
 
 .jumbo {
-  background-image: url("/app/images/dashboard.jpg");
+  background: url("/app/images/dashboard.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
   color: orangered;
   padding: 20px; }
-  .jumbo h1, .jumbo h3 {
+  .jumbo a {
+    font-size: 12px; }
+  .jumbo h3, .jumbo h5, .jumbo h6 {
     margin: 0; }
   .jumbo span {
-    background-color: rgba(128, 128, 128, 0.5);
+    background-color: rgba(128, 128, 128, 0.75);
     width: auto;
     height: auto;
     padding: 0 5px; }
