@@ -1,0 +1,20 @@
+nav {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(128, 128, 128);
+
+    * {
+        border: 1px solid red;
+    }
+
+    .container {
+        width: 90%;
+    }
+}
+
+#brand {
+    font-family: $second-font;
+    color: $header-color;
+}
