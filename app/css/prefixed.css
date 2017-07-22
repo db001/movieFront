@@ -21,8 +21,9 @@ html, body {
   -webkit-margin-after: 0; }
 
 .jumbo {
-  background-image: url("/app/images/dashboard.jpg");
+  background: url("/app/images/dashboard.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
   color: orangered;
   padding: 20px; }
   .jumbo h1, .jumbo h3 {
