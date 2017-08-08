@@ -20,13 +20,19 @@ html, body {
   -webkit-margin-before: 0;
   -webkit-margin-after: 0; }
 
+a {
+  text-decoration: none; }
+
 .jumbo {
   background: url("/app/images/dashboard.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   color: orangered;
-  padding: 20px; }
-  .jumbo h1, .jumbo h3 {
+  padding: 20px;
+  padding-top: 55px; }
+  .jumbo a {
+    font-size: 12px; }
+  .jumbo h3, .jumbo h5, .jumbo h6 {
     margin: 0;
     text-shadow: 1px 1px 2px black; }
   .jumbo span {
@@ -37,21 +43,65 @@ html, body {
 
 nav {
   height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: gray; }
-  nav * {
-    border: 1px solid red; }
+  background-color: gray;
+  font-family: "Open Sans", sans-serif;
+  position: fixed;
+  width: 100%; }
+  nav a {
+    text-decoration: none;
+    color: white; }
   nav .container {
-    width: 90%; }
-
-#brand {
-  font-family: "Changa One", cursive;
-  color: orangered; }
+    width: 90%;
+    margin: auto;
+    height: auto; }
+    nav .container #nav-headers {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      height: 50px;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
+    nav .container #brand {
+      font-family: "Changa One", cursive;
+      color: orangered;
+      text-shadow: 1px 1px 2px black; }
+    nav .container #menu {
+      text-transform: uppercase;
+      font-weight: bolder;
+      font-size: 12px; }
+  nav .dropdown {
+    display: none;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    background-color: gray; }
+    nav .dropdown .link-item {
+      color: white;
+      font-weight: bold;
+      background-color: gray;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      margin: auto;
+      margin-top: -2px;
+      padding: 5px 0;
+      width: 99%;
+      z-index: 1;
+      border: 2px solid black; }
+      nav .dropdown .link-item i {
+        padding-right: 5px; }
+      nav .dropdown .link-item span {
+        font-size: 12px;
+        text-transform: uppercase; }

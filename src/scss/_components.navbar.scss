@@ -1,20 +1,70 @@
 nav {
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: rgb(128, 128, 128);
+    height: $nav-height;
+    background-color: $bg-color;
+    font-family: $main-font;
+    position: fixed;
+    width: 100%;
 
-    * {
-        border: 1px solid red;
+    a {
+        text-decoration: none;
+        color: white;
     }
 
     .container {
         width: 90%;
-    }
-}
+        margin: auto;
+        height: auto;
 
-#brand {
-    font-family: $second-font;
-    color: $header-color;
+        #nav-headers {
+            display: flex;
+            flex-direction: row;
+            height: $nav-height;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        #brand {
+            font-family: $second-font;
+            color: $header-color;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        #menu {
+            text-transform: uppercase;
+            font-weight: bolder;
+            font-size: 12px;
+        }
+           
+    }
+
+    .dropdown {
+        display: none;
+        flex-direction: column;
+        background-color: $bg-color;
+
+        .link-item {
+            color: white;
+            font-weight: bold;
+            background-color: $bg-color;
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            margin-top: -2px;
+            padding: 5px 0;
+            width: 99%;   
+            z-index: 1;
+            border: 2px solid black;  
+
+            i {
+                padding-right: 5px;
+            }
+
+            span {
+                font-size: 12px;
+                text-transform: uppercase;
+            }
+            
+        }    
+    } 
+
 }

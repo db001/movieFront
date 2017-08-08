@@ -26,7 +26,7 @@ module.exports = function(grunt) {
       options: {
         configFile: 'eslint.json'
       },
-      target: ['app/**/*.js']
+      target: ['src/**/*.js']
     },
 
     sass: {
@@ -44,7 +44,7 @@ module.exports = function(grunt) {
       },
       my_target: {
         files: {
-          'app/scripts/ugly.js': 'src/scripts/sample.js'
+          'app/scripts/ugly.js': 'src/scripts/*.js'
         }
       }
     },

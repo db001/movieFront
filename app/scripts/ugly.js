@@ -1,0 +1,1 @@
+function menuToggle(){var dropMenu=document.getElementById("js-dropdown");menuVisible?(dropMenu.style.display="none",menuVisible=!1):menuVisible||(dropMenu.style.display="flex",menuVisible=!0)}var menuBtn=document.getElementById("menu"),menuVisible=!1;menuBtn.addEventListener("click",menuToggle);
