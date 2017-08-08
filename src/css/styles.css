@@ -29,7 +29,7 @@ a {
   background-repeat: no-repeat;
   color: orangered;
   padding: 20px;
-  padding-top: 55px; }
+  padding-top: 65px; }
   .jumbo a {
     font-size: 12px; }
   .jumbo h3, .jumbo h5, .jumbo h6 {
@@ -67,7 +67,8 @@ nav {
     nav .container #menu {
       text-transform: uppercase;
       font-weight: bolder;
-      font-size: 12px; }
+      font-size: 12px;
+      cursor: pointer; }
   nav .dropdown {
     display: none;
     flex-direction: column;
