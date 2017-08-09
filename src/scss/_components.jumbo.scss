@@ -10,7 +10,7 @@
         font-size: 12px;
     }
 
-    h3, h5, h6 {
+    div > span, h1 {
         margin: 0;
         text-shadow: 1px 1px 2px black;
     }
@@ -20,5 +20,23 @@
         width: auto;
         height: auto;
         padding: 0 5px;
+    }
+}
+
+@include for-tablet-landscape-up {
+        .jumbo {
+            padding: 20 0;
+            padding-top: $nav-height + 35;
+
+            .container {
+                width: 65%;
+                margin: auto;
+        }
+    }
+}
+
+@include for-desktop-up {
+    span {
+        font-size: larger;
     }
 }

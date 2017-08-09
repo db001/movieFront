@@ -1,16 +1,31 @@
 // Globally used mixins & functions
 // Should no output any CSS
 
-// Example
-/*
-@mixin transition($trans-params) {
-    -webkit-transition: $trans-params;
-    -moz-transition: $trans-params;
-    -o-transition: $trans-params;
-    transition: $trans-params;
+// Define media breakpoints using mixins
+// 600, 900, 1200, 1800
+
+@mixin for-phone-only {
+    @media (max-width: 599px) {
+        @content;
+    }
 }
-
-// Usage:
-@include transition(all 0.25s ease);
-
-*/
+@mixin for-tablet-portrait-up {
+    @media (min-width: 600px) {
+        @content;
+    }
+}
+@mixin for-tablet-landscape-up {
+    @media (min-width: 900px) {
+        @content;
+    }
+}
+@mixin for-desktop-up {
+    @media (min-width: 1200px) {
+        @content;
+    }
+}
+@mixin for-big-desktop-up {
+    @media (max-width: 1800px) {
+        @content;
+    }
+}
