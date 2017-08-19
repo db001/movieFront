@@ -1,0 +1,21 @@
+#about {
+    width: 85%;
+    margin: auto;
+    font-size: 14px;
+    text-align: justify;
+    .about-single {
+        display: flex;
+        align-content: center;
+        .image-container {
+            width: 33%;
+        }
+        .about-text-container {
+            width: 67%;
+        }
+        img {
+            border-radius: 50%;
+            width: 75%;
+        }
+    }
+
+}
