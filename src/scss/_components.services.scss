@@ -1,0 +1,16 @@
+#services {
+    width: 100%;
+    font-size: 14px;
+    text-align: justify;
+    color: $text-body-color;
+    background-color: rgb(210, 210, 210);
+    margin-top: 0;
+    .container {
+        width: 90%;
+        margin: auto;
+        h2 {
+            text-decoration: underline;
+            text-decoration-color: $header-color;
+        }
+    }
+}

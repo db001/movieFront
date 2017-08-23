@@ -3,15 +3,33 @@
     font-size: 14px;
     text-align: justify;
     color: $text-body-color;
-    background-color: rgb(210, 210, 210);
+    background-color: rgb(255, 255, 255);
     margin-top: 0;
     .container {
         width: 90%;
         margin: auto;
+        h2 {
+            text-decoration: underline;
+            text-decoration-color: $header-color;
+        }
+        .singles-container {
+            display: flex;
+            flex-direction: column;
+        }
     }
     .about-single {
         display: flex;
-        width: 100%;
+        flex-direction: column;
+        width: 90%;
+        margin: auto;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 1px solid grey;
+        border-top: 5px solid $header-color;
+        border-radius: 5px;
+        padding: 10px;
+        background-color: rgb(235, 235, 235);
+        box-shadow: 1px 2px 4px $bg-color;
         .image-container {
             margin: auto;
             width: 33%;
@@ -22,9 +40,11 @@
             }
         }
         .about-text-container {
-            width: 67%;
-            h4 {
+            width: 90%;
+            margin: auto;
+            h3 {
                 -webkit-margin-after: 0.5em;
+                text-align: center;
             }
             p {
                 -webkit-margin-before: 0;

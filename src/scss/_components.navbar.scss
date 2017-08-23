@@ -1,9 +1,12 @@
 nav {
     height: $nav-height;
     background-color: $bg-color;
+    background: linear-gradient(70deg, $bg-color, rgb(175, 175, 175));    
     font-family: $main-font;
     position: fixed;
     width: 100%;
+    border-top: 3px solid $header-color;
+    border-bottom: 3px solid $header-color;
     a {
         text-decoration: none;
         color: white;
@@ -39,7 +42,7 @@ nav {
     .dropdown {
         display: none;
         flex-direction: column;
-        background-color: $bg-color;
+        /* background-color: $bg-color; */
         .link-item {
             color: white;
             font-weight: bold;
@@ -58,6 +61,7 @@ nav {
             span {
                 font-size: 12px;
                 text-transform: uppercase;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
             }
         }
     }
@@ -66,33 +70,45 @@ nav {
         .container {
             display: flex;
             flex-direction: row;
-            width: 65%;
+            width: 85%;
         }
         .dropdown {
             display: flex;
-            flex-direction: row;
+            flex-direction: row;           
             .link-item {
-                width: 100px;
+                width: 110px;
                 border: none;
                 text-align: center;
-                margin-top: 10px;
+                margin-top: 17px;
+                background-color: rgba(0, 0, 0, 0.0);
                 a {
                     display: flex;
                     flex-direction: column;
-                    * {
-                        padding: 3px;
-                    }
                 }
                 span {
                     font-size: 14px;
                 }
                 i {
                     font-size: 18px;
+                    padding-bottom: 3px;
                 }
             }
         }
         #menu {
             display: none;
+        }
+    }
+
+    @include for-desktop-up {
+        .container {
+            display: flex;
+            flex-direction: row;
+            width: 65%;
+        }
+        .dropdown {           
+            .link-item {
+                width: 125px;
+            }
         }
     }
 }
