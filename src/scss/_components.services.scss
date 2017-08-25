@@ -8,9 +8,33 @@
     .container {
         width: 90%;
         margin: auto;
+        padding-bottom: 10px;
         h2 {
             text-decoration: underline;
             text-decoration-color: $header-color;
+            -webkit-margin-after: 0.25em;
+        }        
+        .icon-paragraph {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            i {
+                margin-right: 10px;
+                color: $header-color;
+                font-size: 16px;
+            }
+            p {
+                -webkit-margin-before: 0.25em;
+                -webkit-margin-after: 0.5em;
+            }
+        }
+    }
+}
+
+@include for-tablet-landscape-up {
+    #services {
+        .container {
+            width: 60%;
         }
     }
 }

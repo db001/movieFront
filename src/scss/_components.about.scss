@@ -5,6 +5,7 @@
     color: $text-body-color;
     background-color: rgb(255, 255, 255);
     margin-top: 0;
+    margin-bottom: 10px;
     .container {
         width: 90%;
         margin: auto;
@@ -19,16 +20,16 @@
     }
     .about-single {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
         width: 90%;
         margin: auto;
         margin-top: 10px;
         margin-bottom: 10px;
-        border: 1px solid grey;
+        border: 1px solid rgb(235, 235, 235);
         border-top: 5px solid $header-color;
         border-radius: 5px;
         padding: 10px;
-        background-color: rgb(235, 235, 235);
+        background-color: rgb(245, 245, 245);
         box-shadow: 1px 2px 4px $bg-color;
         .image-container {
             margin: auto;
@@ -37,14 +38,16 @@
             img {
                 border-radius: 50%;
                 width: 75%;
+                padding-right: 5px;
             }
         }
         .about-text-container {
             width: 90%;
             margin: auto;
+            padding-right: 15px;
             h3 {
                 -webkit-margin-after: 0.5em;
-                text-align: center;
+                text-align: left;
             }
             p {
                 -webkit-margin-before: 0;
