@@ -1,24 +1,41 @@
 #gallery {
    .gallery-container {
         margin: 0 auto;
-        padding: 0 1rem;
+        padding: 0 2px;
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
         .img-cell {
-            margin: 2px;;
+            margin: 2px;
             width: calc(50% - 4px);
         }
         img {
-            width: 100%;
             max-width: 100%;
-            display: block;
+            transition: filter 0.5s;
         }
+        img:hover {
+            filter: grayscale(100%);
+        }   
     }
 }
 
+@include for-tablet-portrait-up {
+    #gallery {
+        .gallery-container {
+            .img-cell {
+                width: calc(33.3333% - 4px);
+            }
+        } 
+    }       
+}
+
 @include for-tablet-landscape-up {
-    .img-cell {
-        width: calc(33.3333% - 4px);
-    }
+    #gallery {
+        .gallery-container {
+            .img-cell {
+                margin: 8px;
+                width: calc(20% - 16px);
+            }
+        }    
+    }    
 }

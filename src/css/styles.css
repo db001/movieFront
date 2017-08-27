@@ -88,7 +88,8 @@ nav {
   position: fixed;
   width: 100%;
   border-top: 3px solid orangered;
-  border-bottom: 3px solid orangered; }
+  border-bottom: 3px solid orangered;
+  z-index: 9999; }
   nav a {
     text-decoration: none;
     color: white; }
@@ -110,6 +111,8 @@ nav {
       font-family: "Changa One", cursive;
       color: orangered;
       text-shadow: 1px 1px 2px black; }
+      nav .container #brand h2 {
+        text-decoration: none; }
     nav .container #menu {
       text-transform: uppercase;
       font-weight: bolder;
@@ -236,7 +239,7 @@ nav {
 
 #gallery .gallery-container {
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 2px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: row; }
@@ -244,12 +247,17 @@ nav {
     margin: 2px;
     width: calc(50% - 4px); }
   #gallery .gallery-container img {
-    width: 100%;
     max-width: 100%;
-    display: block; }
+    transition: filter 0.5s; }
+  #gallery .gallery-container img:hover {
+    filter: grayscale(100%); }
 
-@media (min-width: 900px) {
-  .img-cell {
+@media (min-width: 600px) {
+  #gallery .gallery-container .img-cell {
     width: calc(33.3333% - 4px); } }
+@media (min-width: 900px) {
+  #gallery .gallery-container .img-cell {
+    margin: 8px;
+    width: calc(20% - 16px); } }
 
 /*# sourceMappingURL=styles.css.map */

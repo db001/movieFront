@@ -14,3 +14,18 @@ function menuToggle() {
 }
 
 menuBtn.addEventListener('click', menuToggle);
+
+// Image popout for gallery
+var images;
+
+window.onload(function() {
+    images = document.getElementsByClassName('js-img');
+}) 
+
+function imagePop() {
+    console.log(images);    
+}
+
+for (var i = 0; i < images.length; i++) {
+    images.addEventListener('click', imagePop);
+}
