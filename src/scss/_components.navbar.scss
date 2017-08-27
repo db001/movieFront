@@ -42,7 +42,6 @@ nav {
     .dropdown {
         display: none;
         flex-direction: column;
-        /* background-color: $bg-color; */
         .link-item {
             color: white;
             font-weight: bold;
@@ -54,7 +53,7 @@ nav {
             padding: 5px 0;
             width: 99%;
             z-index: 1;
-            border: 2px solid black;
+            border: 2px solid $header-color;
             i {
                 padding-right: 5px;
             }

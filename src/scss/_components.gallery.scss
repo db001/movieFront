@@ -1,0 +1,24 @@
+#gallery {
+   .gallery-container {
+        margin: 0 auto;
+        padding: 0 1rem;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        .img-cell {
+            margin: 2px;;
+            width: calc(50% - 4px);
+        }
+        img {
+            width: 100%;
+            max-width: 100%;
+            display: block;
+        }
+    }
+}
+
+@include for-tablet-landscape-up {
+    .img-cell {
+        width: calc(33.3333% - 4px);
+    }
+}

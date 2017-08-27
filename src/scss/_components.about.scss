@@ -3,16 +3,11 @@
     font-size: 14px;
     text-align: justify;
     color: $text-body-color;
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(230, 230, 230);
     margin-top: 0;
     margin-bottom: 10px;
+    padding-bottom: 20px;
     .container {
-        width: 90%;
-        margin: auto;
-        h2 {
-            text-decoration: underline;
-            text-decoration-color: $header-color;
-        }
         .singles-container {
             display: flex;
             flex-direction: column;

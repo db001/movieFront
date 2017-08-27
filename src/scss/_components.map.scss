@@ -4,7 +4,13 @@
     height: 250px;
     margin: 0;
     padding: 0;
+    background-color: rgb(230, 230, 230);
+    padding-bottom: 190px;
+    #map-container{
+        border: 1px solid rgb(210, 210, 210);
+        box-shadow: 1px 2px 4px $bg-color;
+    }
     iframe {
-        filter: grayscale(100%);
+        filter: grayscale(100%);        
     }
 }

@@ -3,16 +3,13 @@
     font-size: 14px;
     text-align: justify;
     color: $text-body-color;
-    background-color: rgb(210, 210, 210);
+    background-color: rgb(255, 255, 255);
     margin-top: 0;
+    margin-bottom: 10px;
     .container {
-        width: 90%;
-        margin: auto;
         padding-bottom: 10px;
         h2 {
-            text-decoration: underline;
-            text-decoration-color: $header-color;
-            -webkit-margin-after: 0.25em;
+            -webkit-margin-after: 0.5em;
         }        
         .icon-paragraph {
             display: flex;
