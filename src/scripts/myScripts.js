@@ -15,17 +15,35 @@ function menuToggle() {
 
 menuBtn.addEventListener('click', menuToggle);
 
-// Image popout for gallery
+// Image popout for gallery logic
 var images;
+var modal = document.getElementById('image-modal');
+var closeIcon = document.getElementsByClassName('close')[0];
+var modalImg = document.getElementById('js-modal-img');
 
-window.onload(function() {
+function getImages() {
     images = document.getElementsByClassName('js-img');
-}) 
-
-function imagePop() {
-    console.log(images);    
+    // console.log(images);
+    for (var i = 0; i < images.length; i++) {
+        images[i].addEventListener('click', imagePop);
+    }
+        
 }
 
-for (var i = 0; i < images.length; i++) {
-    images.addEventListener('click', imagePop);
+window.onload = getImages; 
+
+function imagePop(e) {
+    var targetSrc = e.target.currentSrc;
+    modalImg.setAttribute('src', targetSrc);
+    modal.style.display = 'flex';
+}
+
+closeIcon.addEventListener('click', function() {
+    modal.style.display = 'none';
+})
+
+window.onclick = function(ev) {
+    if (ev.target == modal) {
+        modal.style.display = 'none';
+    } 
 }
