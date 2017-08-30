@@ -13,22 +13,17 @@
     max-width: 80%;
     background-color: white;
     margin: auto;
-    box-shadow: 1px 2px 4px $bg-color;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
     .close {
         float: right;
         color: $header-color;
-        font-size: 30px;
+        font-size: 40px;
         text-shadow: 1px 1px 1px rgb(150, 150, 150);
         margin-top: -40px;
+        margin-right: -40px;
         cursor: pointer;
     }
     img {
         width: 100%;
-    }
-}
-
-@include for-tablet-landscape-up {
-    .modal-content {
-        height: 30%;
     }
 }

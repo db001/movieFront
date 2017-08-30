@@ -16,3 +16,9 @@ html, body {
     width: 90%;
     margin: auto;
 }
+
+@include for-desktop-up {
+    .container {
+        width: 65%;
+    }
+}

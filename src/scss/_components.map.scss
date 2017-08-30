@@ -10,7 +10,10 @@
         border: 1px solid rgb(210, 210, 210);
         box-shadow: 1px 2px 4px $bg-color;
     }
-    iframe {
-        filter: grayscale(100%);        
+}
+
+@include for-tablet-landscape-up {
+    #find-us {
+        height: 400px;
     }
 }

@@ -27,11 +27,3 @@
         }
     }
 }
-
-@include for-tablet-landscape-up {
-    #services {
-        .container {
-            width: 60%;
-        }
-    }
-}
