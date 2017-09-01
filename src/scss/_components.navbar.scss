@@ -58,6 +58,11 @@ nav {
             width: 99%;
             z-index: 1;
             border: 2px solid $header-color;
+            .nav-item-container {
+                border: 1px solid red;
+                display: flex;
+                cursor: pointer;
+            }
             i {
                 padding-right: 5px;
             }
@@ -84,7 +89,7 @@ nav {
                 text-align: center;
                 margin-top: 17px;
                 background-color: rgba(0, 0, 0, 0.0);
-                a {
+                .nav-item-container {
                     display: flex;
                     flex-direction: column;
                 }

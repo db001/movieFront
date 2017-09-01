@@ -132,6 +132,10 @@ nav {
       width: 99%;
       z-index: 1;
       border: 2px solid orangered; }
+      nav .dropdown .link-item .nav-item-container {
+        border: 1px solid red;
+        display: flex;
+        cursor: pointer; }
       nav .dropdown .link-item i {
         padding-right: 5px; }
       nav .dropdown .link-item span {
@@ -152,7 +156,7 @@ nav {
         text-align: center;
         margin-top: 17px;
         background-color: transparent; }
-        nav .dropdown .link-item a {
+        nav .dropdown .link-item .nav-item-container {
           display: flex;
           flex-direction: column; }
         nav .dropdown .link-item span {
@@ -271,6 +275,7 @@ nav {
 
 .modal-content {
   max-width: 80%;
+  max-height: 80%;
   background-color: white;
   margin: auto;
   box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5); }

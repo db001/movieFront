@@ -15,7 +15,7 @@ function menuToggle() {
 
 menuBtn.addEventListener('click', menuToggle);
 
-// Image popout for gallery logic
+// Gallery image popout for logic
 var images;
 var modal = document.getElementById('image-modal');
 var closeIcon = document.getElementsByClassName('close')[0];
@@ -46,4 +46,27 @@ window.onclick = function(ev) {
     if (ev.target == modal) {
         modal.style.display = 'none';
     } 
+}
+
+// Scroll to section logic
+// Sections: about, services, find-us, gallery, testimonials
+
+function getData(e) {
+    // Get data-link from target div
+    var eleLink = e.target.parentNode.dataset.link;
+
+    // Assign target to variable and get position
+    var eleTarget = document.getElementById(eleLink)
+    var eleRect = eleTarget.getBoundingClientRect();
+
+    // Get height of navbar
+    var navHeight = document.getElementsByTagName('nav')[0].clientHeight;
+    console.log(navHeight);
+
+    window.scrollTo(0, eleRect.top - navHeight);
+}
+var links = document.getElementsByClassName('nav-item-container');
+
+for(var j = 0; j < links.length; j++) {
+    links[j].addEventListener('click', getData);
 }
