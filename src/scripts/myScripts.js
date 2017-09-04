@@ -1,10 +1,11 @@
+// Dropdown menu logic
 var menuBtn = document.getElementById('menu');
 
 var menuVisible = false;
 
 function menuToggle() {
     var dropMenu = document.getElementById('js-dropdown');
-    if(menuVisible) {
+    if (menuVisible) {
         dropMenu.style.display = 'none';
         menuVisible = false;
     } else if (!menuVisible) {
@@ -27,10 +28,11 @@ function getImages() {
     for (var i = 0; i < images.length; i++) {
         images[i].addEventListener('click', imagePop);
     }
-        
+
 }
 
-window.onload = getImages; 
+// Call function once window has loaded all images
+window.onload = getImages;
 
 function imagePop(e) {
     var targetSrc = e.target.currentSrc;
@@ -38,11 +40,11 @@ function imagePop(e) {
     modal.style.display = 'flex';
 }
 
-closeIcon.addEventListener('click', function() {
+closeIcon.addEventListener('click', function () {
     modal.style.display = 'none';
 })
 
-window.onclick = function(ev) {
+window.onclick = function (ev) {
     if (ev.target == modal) {
         modal.style.display = 'none';
     }
@@ -71,14 +73,51 @@ function getData(e) {
 
 var links = document.getElementsByClassName('nav-item-container');
 
-for(var j = 0; j < links.length; j++) {
+for (var j = 0; j < links.length; j++) {
     links[j].addEventListener('click', getData);
 }
 
 // Clicking the brand returns to the top of the page
- 
 function toTop() {
     window.scrollTo(0, 0);
 }
 
 document.getElementById('brand').addEventListener('click', toTop);
+
+// Testimonials slide show
+var customerQuotes = [{
+        quote: "I love them, they are the best",
+        customer: "A. Jolie"
+    },
+    {
+        quote: "My car feels amazing",
+        customer: "A. A. Milne"
+    },
+    {
+        quote: "Always take my car there and they've been great, never found anywhere that beats them on service or price",
+        customer: "Jane Smith"
+    },
+    {
+        quote: "Went there expecting a lot of work to be needed, fixed the problem within half an hour and only charged me for the part",
+        customer: "Bill Murray"
+    }
+];
+
+var custQuote = document.getElementById('customer-quote');
+var custName = document.getElementById('customer-name');
+
+var quoteIndex = 0;
+
+function showQuote() {
+    if (quoteIndex > customerQuotes.length - 1) {
+        quoteIndex = 0;
+    }
+    custQuote.innerText = customerQuotes[quoteIndex].quote;
+    custName.innerText = customerQuotes[quoteIndex].customer;
+    quoteIndex++;
+}
+
+// Call function to avoid blank box for first 3 seconds
+showQuote();
+
+setInterval(showQuote, 3000);
