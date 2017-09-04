@@ -45,13 +45,17 @@ closeIcon.addEventListener('click', function() {
 window.onclick = function(ev) {
     if (ev.target == modal) {
         modal.style.display = 'none';
-    } 
+    }
 }
 
 // Scroll to section logic
 // Sections: about, services, find-us, gallery, testimonials
 
 function getData(e) {
+
+    // Current position
+    var docScroll = document.documentElement.scrollTop || document.body.scrollTop;
+
     // Get data-link from target div
     var eleLink = e.target.parentNode.dataset.link;
 
@@ -61,12 +65,20 @@ function getData(e) {
 
     // Get height of navbar
     var navHeight = document.getElementsByTagName('nav')[0].clientHeight;
-    console.log(navHeight);
 
-    window.scrollTo(0, eleRect.top - navHeight);
+    window.scrollTo(0, eleRect.top - navHeight + docScroll);
 }
+
 var links = document.getElementsByClassName('nav-item-container');
 
 for(var j = 0; j < links.length; j++) {
     links[j].addEventListener('click', getData);
 }
+
+// Clicking the brand returns to the top of the page
+ 
+function toTop() {
+    window.scrollTo(0, 0);
+}
+
+document.getElementById('brand').addEventListener('click', toTop);

@@ -100,10 +100,7 @@ nav {
   border-top: 3px solid orangered;
   border-bottom: 3px solid orangered;
   z-index: 1; }
-  nav a {
-    text-decoration: none;
-    color: white; }
-  nav a:hover {
+  nav .nav-item-container:hover {
     color: orangered; }
   nav .container {
     width: 100%;
@@ -129,7 +126,8 @@ nav {
     nav .container #brand {
       font-family: "Changa One", cursive;
       color: orangered;
-      text-shadow: 1px 1px 2px black; }
+      text-shadow: 1px 1px 2px black;
+      cursor: pointer; }
       nav .container #brand h2 {
         text-decoration: none; }
     nav .container #menu {
@@ -147,6 +145,7 @@ nav {
       color: white;
       font-weight: bold;
       background-color: gray;
+      background: linear-gradient(70deg, gray, #afafaf);
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -156,11 +155,11 @@ nav {
       margin: auto;
       margin-top: -2px;
       padding: 5px 0;
-      width: 99%;
+      width: 100%;
       z-index: 1;
-      border: 2px solid orangered; }
+      border-top: 2px solid orangered;
+      border-bottom: 2px solid orangered; }
       nav .dropdown .link-item .nav-item-container {
-        border: 1px solid red;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -194,7 +193,7 @@ nav {
         border: none;
         text-align: center;
         margin-top: 17px;
-        background-color: transparent; }
+        background: transparent; }
         nav .dropdown .link-item .nav-item-container {
           display: -webkit-box;
           display: -ms-flexbox;
@@ -281,10 +280,19 @@ nav {
     border-radius: 50%;
     width: 100px; } }
 @media (min-width: 1200px) {
-  .about-single {
+  #about .container .singles-container {
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex; } }
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row; }
+    #about .container .singles-container .about-single {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      width: 45%; } }
 #find-us {
   position: relative;
   width: 100%;

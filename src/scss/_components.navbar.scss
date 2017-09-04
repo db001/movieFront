@@ -8,11 +8,7 @@ nav {
     border-top: 3px solid $header-color;
     border-bottom: 3px solid $header-color;
     z-index: 1;
-    a {
-        text-decoration: none;
-        color: white;
-    }
-    a:hover {
+    .nav-item-container:hover {
         color: $header-color;
     }
     .container {
@@ -32,6 +28,7 @@ nav {
             font-family: $second-font;
             color: $header-color;
             text-shadow: 1px 1px 2px black;
+            cursor: pointer;
             h2 {
                 text-decoration: none;
             }
@@ -50,16 +47,17 @@ nav {
             color: white;
             font-weight: bold;
             background-color: $bg-color;
+            background: linear-gradient(70deg, $bg-color, rgb(175, 175, 175));
             display: flex;
             justify-content: center;
             margin: auto;
             margin-top: -2px;
             padding: 5px 0;
-            width: 99%;
+            width: 100%;
             z-index: 1;
-            border: 2px solid $header-color;
+            border-top: 2px solid $header-color;
+            border-bottom: 2px solid $header-color;            
             .nav-item-container {
-                border: 1px solid red;
                 display: flex;
                 cursor: pointer;
             }
@@ -88,7 +86,7 @@ nav {
                 border: none;
                 text-align: center;
                 margin-top: 17px;
-                background-color: rgba(0, 0, 0, 0.0);
+                background: transparent;
                 .nav-item-container {
                     display: flex;
                     flex-direction: column;
