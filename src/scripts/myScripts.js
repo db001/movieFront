@@ -53,7 +53,7 @@ window.onclick = function (ev) {
 // Scroll to section logic
 // Sections: about, services, find-us, gallery, testimonials
 
-function getData(e) {
+function jumpToSection(e) {
 
     // Current position
     var docScroll = document.documentElement.scrollTop || document.body.scrollTop;
@@ -74,7 +74,7 @@ function getData(e) {
 var links = document.getElementsByClassName('nav-item-container');
 
 for (var j = 0; j < links.length; j++) {
-    links[j].addEventListener('click', getData);
+    links[j].addEventListener('click', jumpToSection);
 }
 
 // Clicking the brand returns to the top of the page
@@ -83,6 +83,9 @@ function toTop() {
 }
 
 document.getElementById('brand').addEventListener('click', toTop);
+
+// Map link in jumbo navigate to map
+document.getElementById('map-link').addEventListener('click', jumpToSection);
 
 // Testimonials slide show
 var customerQuotes = [{

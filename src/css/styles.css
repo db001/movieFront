@@ -32,11 +32,13 @@ h2 {
   color: orangered;
   padding: 20px;
   padding-top: 95px; }
-  .jumbo a {
-    font-size: 12px;
+  .jumbo #map-link {
+    font-size: 14px;
+    color: white;
+    cursor: pointer;
+    text-shadow: 1px 1px 2px black; }
+  .jumbo #map-link:hover {
     color: black; }
-  .jumbo a:hover {
-    color: white; }
   .jumbo div > span, .jumbo h1 {
     margin: 0;
     text-shadow: 1px 1px 2px black; }
@@ -202,7 +204,6 @@ nav {
       width: 33%;
       text-align: center; }
       #about .about-single .image-container img {
-        border-radius: 50%;
         width: 75%;
         padding-right: 5px; }
     #about .about-single .about-text-container {
@@ -217,7 +218,6 @@ nav {
 
 @media (min-width: 900px) {
   #about .container .about-single .image-container img {
-    border-radius: 50%;
     width: 100px; } }
 @media (min-width: 1200px) {
   #about .container .singles-container {
