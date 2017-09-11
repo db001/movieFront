@@ -1,0 +1,33 @@
+#test {
+    width: 60%;
+    margin: auto;
+    position: relative;
+    img {
+        width: 100%;
+    }
+    .mySlides {
+        width: 100%;
+        display: none;
+        flex-direction: column;
+    } 
+    .caption {
+        width: 100%;
+        text-align: center;
+        color: black;
+        text-shadow: 1px 2px 2px black;
+      }
+}
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    color: black;
+    font-size: 48px;
+    padding-left: 15px;
+    padding-right: 15px;
+    cursor: pointer;
+    text-shadow: 2px 2px 5px black;
+  }
+  
+  .next {
+    right: 0;
+  }
