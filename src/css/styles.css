@@ -7,33 +7,30 @@ html, body {
   -webkit-margin-after: 0;
   box-sizing: border-box; }
 
-#test {
+.container {
+  display: flex;
+  align-items: center;
   width: 60%;
-  margin: auto;
-  position: relative; }
-  #test img {
-    width: 100%; }
-  #test .mySlides {
-    width: 100%;
-    display: none;
-    flex-direction: column; }
-  #test .caption {
-    width: 100%;
-    text-align: center;
+  margin: auto; }
+  .container #test {
+    display: flex;
+    margin: auto; }
+    .container #test img {
+      margin: auto;
+      margin-top: 25px; }
+    .container #test .mySlides {
+      width: 100%;
+      display: none;
+      flex-direction: column; }
+    .container #test .caption {
+      width: 100%;
+      text-align: center;
+      color: black;
+      text-shadow: 1px 2px 2px black; }
+  .container .prev, .container .next {
     color: black;
-    text-shadow: 1px 2px 2px black; }
-
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  color: black;
-  font-size: 48px;
-  padding-left: 15px;
-  padding-right: 15px;
-  cursor: pointer;
-  text-shadow: 2px 2px 5px black; }
-
-.next {
-  right: 0; }
+    font-size: 48px;
+    cursor: pointer;
+    text-shadow: 2px 2px 5px black; }
 
 /*# sourceMappingURL=styles.css.map */

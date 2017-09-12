@@ -1,4 +1,4 @@
-let movieURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_key_removed}&language=en-US&region=GB&sort_by=popularity.desc&certification_country=GB&include_adult=false&include_video=false&page=1&release_date.gte=2017-08-20`;
+let movieURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY_REMOVED}&language=en-US&region=GB&sort_by=popularity.desc&certification_country=GB&include_adult=false&include_video=false&page=1&release_date.gte=2017-08-20`;
 
 let test = document.getElementById('test');
 
