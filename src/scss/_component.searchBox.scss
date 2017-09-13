@@ -1,0 +1,37 @@
+.searchContainer {
+    border-bottom: 1px solid $font-color;
+    form {
+        display: flex;
+        .selectContainer {
+            margin: 15px;
+            label {
+                font-family: 'Bungee Hairline';
+                font-weight: bolder;
+                padding-right: 10px;
+            }
+            select, input {
+                border: none;
+                background-color: $bg-color;
+                color: $font-color;
+                font-family: $main-font;
+                option {
+                    font-family: $main-font;
+
+                }
+            }
+            input {
+                border: 1px solid #252525;
+                border-radius: 5px;
+                padding-left: 10px;
+            }
+        }
+        button {
+            width: 100px;
+            background-color: $font-color;
+            color: $bg-color;
+            font-family: $main-font;
+            border: none;
+            border-radius: 5px;
+        }
+    }
+}

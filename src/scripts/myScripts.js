@@ -1,4 +1,17 @@
-let movieURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY_REMOVED}&language=en-US&region=GB&sort_by=popularity.desc&certification_country=GB&include_adult=false&include_video=false&page=1&release_date.gte=2017-08-20`;
+const API_KEY = `${removed}`;
+
+function createUrl() {
+  let baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&region=GB&sort_by=popularity.desc`;
+
+  let cert = `&certification=${document.getElementById('js-cert').value}`;
+  let genre = document.getElementById('js-genre').value;
+  let relYear = `primary_release_year=${document.getElementById('js-releaseYear').value}`;
+
+  return `${baseURL}&certification_country=GB${cert}&include_video=false&page=1&${relYear}` 
+
+}
+
+let movieURL = createUrl();
 
 let test = document.getElementById('test');
 
@@ -8,7 +21,6 @@ fetch(movieURL)
     .then(res => res.json())
     .then((data) => {
         let results = data.results;
-        // console.log(results);
         for(let i = 0; i < results.length; i++) {
             test.innerHTML += formatData(results[i]);
         }
@@ -54,5 +66,5 @@ let date = new Date();
 
 let yearControl = document.getElementById('js-releaseYear');
 yearControl.max = date.getFullYear();
-console.log(yearControl.max);
 yearControl.value = "2017";
+

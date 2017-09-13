@@ -1,11 +1,50 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web");
+@import url("https://fonts.googleapis.com/css?family=Bungee+Hairline|Jura:500");
 html, body {
   margin: 0;
   padding: 0;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Titillium Web", sans-serif;
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  background: #000000;
+  color: #18206F; }
+
+h1 {
+  font-family: "Bungee Hairline", sans-serif; }
+
+#mainHead {
+  padding: 15px; }
+
+.searchContainer {
+  border-bottom: 1px solid #18206F; }
+  .searchContainer form {
+    display: flex; }
+    .searchContainer form .selectContainer {
+      margin: 15px; }
+      .searchContainer form .selectContainer label {
+        font-family: 'Bungee Hairline';
+        font-weight: bolder;
+        padding-right: 10px; }
+      .searchContainer form .selectContainer select, .searchContainer form .selectContainer input {
+        border: none;
+        background-color: #000000;
+        color: #18206F;
+        font-family: "Titillium Web", sans-serif; }
+        .searchContainer form .selectContainer select option, .searchContainer form .selectContainer input option {
+          font-family: "Titillium Web", sans-serif; }
+      .searchContainer form .selectContainer input {
+        border: 1px solid #252525;
+        border-radius: 5px;
+        padding-left: 10px; }
+    .searchContainer form button {
+      width: 100px;
+      background-color: #18206F;
+      color: #000000;
+      font-family: "Titillium Web", sans-serif;
+      border: none;
+      border-radius: 5px; }
 
 .container {
   display: flex;
@@ -28,7 +67,6 @@ html, body {
       color: black;
       text-shadow: 1px 2px 2px black; }
   .container .prev, .container .next {
-    color: black;
     font-size: 48px;
     cursor: pointer;
     text-shadow: 2px 2px 5px black; }
