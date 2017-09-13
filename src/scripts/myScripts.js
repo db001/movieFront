@@ -1,4 +1,4 @@
-let movieURL = `https://api.themoviedb.org/3/discover/movie?api_key=019825fa58fb7940e7912b45ae59d036&language=en-US&region=GB&sort_by=popularity.desc&certification_country=GB&include_adult=false&include_video=false&page=1&release_date.gte=2017-08-20`;
+let movieURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY_REMOVED}&language=en-US&region=GB&sort_by=popularity.desc&certification_country=GB&include_adult=false&include_video=false&page=1&release_date.gte=2017-08-20`;
 
 let test = document.getElementById('test');
 
@@ -49,3 +49,10 @@ next.addEventListener('click', function() {
 prev.addEventListener('click', function() {
   showSlides(slideIndex -= 1);
 });
+
+let date = new Date();
+
+let yearControl = document.getElementById('js-releaseYear');
+yearControl.max = date.getFullYear();
+console.log(yearControl.max);
+yearControl.value = "2017";
