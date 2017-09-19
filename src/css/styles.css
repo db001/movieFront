@@ -8,8 +8,8 @@ html, body {
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
   box-sizing: border-box;
-  background: #000000;
-  color: #18206F; }
+  background: #fff;
+  color: #000; }
 
 h1 {
   font-family: "Bungee Hairline", sans-serif; }
@@ -18,7 +18,7 @@ h1 {
   padding: 15px; }
 
 .searchContainer {
-  border-bottom: 1px solid #18206F; }
+  border-bottom: 1px solid #000; }
   .searchContainer form {
     display: flex; }
     .searchContainer form .selectContainer {
@@ -29,8 +29,8 @@ h1 {
         padding-right: 10px; }
       .searchContainer form .selectContainer select, .searchContainer form .selectContainer input {
         border: none;
-        background-color: #000000;
-        color: #18206F;
+        background-color: #fff;
+        color: #000;
         font-family: "Titillium Web", sans-serif; }
         .searchContainer form .selectContainer select option, .searchContainer form .selectContainer input option {
           font-family: "Titillium Web", sans-serif; }
@@ -40,8 +40,8 @@ h1 {
         padding-left: 10px; }
     .searchContainer form button {
       width: 100px;
-      background-color: #18206F;
-      color: #000000;
+      background-color: #000;
+      color: #fff;
       font-family: "Titillium Web", sans-serif;
       border: none;
       border-radius: 5px; }

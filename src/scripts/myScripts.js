@@ -1,5 +1,31 @@
-const API_KEY = `Removed`;
+const API_KEY = `REMOVED`;
 
+let countries = [];
+
+$(document).ready(function() {
+
+  getCountry();  
+  
+})
+
+function getCountry() {
+  $.getJSON(`https://api.themoviedb.org/3/certification/movie/list?api_key=${API_KEY}`, function(data) {
+      // console.log(data.certifications);
+      for (let key in data.certifications) {
+        countries.push(key);
+      }
+      countries.forEach((e) => {
+        $('#countrySelect').append(`<li>${e}</li>`);
+      })
+  });
+  console.log(countries);
+ 
+}
+
+
+
+
+/*
 const genres = [
     {"id": 28, "name": "Action"},
     {"id": 12, "name": "Adventure"},
@@ -97,3 +123,4 @@ let yearControl = document.getElementById('js-releaseYear');
 yearControl.max = date.getFullYear();
 yearControl.value = "2017";
 
+*/
