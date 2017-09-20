@@ -1,26 +1,49 @@
 const API_KEY = `REMOVED`;
 
-let countries = [];
+let GBCerts = [];
+let certEles = [];
 
 $(document).ready(function() {
 
-  getCountry();  
+  getCerts();      
+
+  // This is running before getCerts() completes therefore certEle is empty
+  certEles = document.getElementsByClassName('cert');
+  console.log(certEles.length);
+
+  for(let j = 0; j < certEles.length; j++) {
+    console.log(j);
+    certEles[j].addEventListener('mouseover', function() {
+      console.log('Hover');
+    });
+  }
   
 })
 
-function getCountry() {
+function getCerts() {
   $.getJSON(`https://api.themoviedb.org/3/certification/movie/list?api_key=${API_KEY}`, function(data) {
-      // console.log(data.certifications);
-      for (let key in data.certifications) {
-        countries.push(key);
-      }
-      countries.forEach((e) => {
-        $('#countrySelect').append(`<li>${e}</li>`);
-      })
-  });
-  console.log(countries);
- 
+
+    // Get certifications for GB - returns array of objects
+    let certs = data.certifications.GB;
+
+    // Loop through certs to put in order and push to GBCerts array
+    for(let i = 1; i <= certs.length; i++) {
+      let x = certs.filter((obj) => obj.order == i);
+      GBCerts.push(...x);
+    }
+
+    // Append certification to DOM
+    GBCerts.map(ele => {
+      $('#certSelect').append(`<li class='cert'>${ele.certification}<span class='certDescription'>${ele.meaning}</span></li>`);
+    })
+  })    
 }
+
+// Show certification meaning, to be fired on mouseover
+//function showCertMeaning() {
+//  console.log('Hover');
+//}
+
 
 
 

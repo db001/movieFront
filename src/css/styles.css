@@ -19,32 +19,16 @@ h1 {
 
 .searchContainer {
   border-bottom: 1px solid #000; }
-  .searchContainer form {
-    display: flex; }
-    .searchContainer form .selectContainer {
-      margin: 15px; }
-      .searchContainer form .selectContainer label {
-        font-family: 'Bungee Hairline';
-        font-weight: bolder;
-        padding-right: 10px; }
-      .searchContainer form .selectContainer select, .searchContainer form .selectContainer input {
-        border: none;
-        background-color: #fff;
-        color: #000;
-        font-family: "Titillium Web", sans-serif; }
-        .searchContainer form .selectContainer select option, .searchContainer form .selectContainer input option {
-          font-family: "Titillium Web", sans-serif; }
-      .searchContainer form .selectContainer input {
-        border: 1px solid #252525;
-        border-radius: 5px;
-        padding-left: 10px; }
-    .searchContainer form button {
-      width: 100px;
-      background-color: #000;
-      color: #fff;
-      font-family: "Titillium Web", sans-serif;
-      border: none;
-      border-radius: 5px; }
+  .searchContainer .selectArea #certSelect {
+    display: flex;
+    list-style: none; }
+    .searchContainer .selectArea #certSelect .cert {
+      text-align: center;
+      width: 50px;
+      cursor: pointer; }
+      .searchContainer .selectArea #certSelect .cert .certDescription {
+        display: none;
+        width: 75%; }
 
 .container {
   display: flex;
