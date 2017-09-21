@@ -1,13 +1,20 @@
-const API_KEY = `REMOVED`;
+const API_KEY = `API key removed`;
 
 let GBCerts = [];
 let certEles = [];
 
 $(document).ready(function() {
 
-  getCerts();      
+  getCerts();
 
-  // This is running before getCerts() completes therefore certEle is empty
+  /* Use a Promise?
+  let promise = new Promise(function(resolve, reject) {
+    getCerts();
+    if()
+  })
+  */ 
+
+  // This is running before getCerts() completes therefore certEles is empty
   certEles = document.getElementsByClassName('cert');
   console.log(certEles.length);
 
