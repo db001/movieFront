@@ -1,58 +1,66 @@
-const API_KEY = `API key removed`;
+const API_KEY = `removed`;
 
 let GBCerts = [];
 let certEles = [];
 
 $(document).ready(function() {
+  
+  certPromise.then(function() {
 
-  getCerts();
-
-  /* Use a Promise?
-  let promise = new Promise(function(resolve, reject) {
-    getCerts();
-    if()
-  })
-  */ 
-
-  // This is running before getCerts() completes therefore certEles is empty
-  certEles = document.getElementsByClassName('cert');
-  console.log(certEles.length);
-
-  for(let j = 0; j < certEles.length; j++) {
-    console.log(j);
-    certEles[j].addEventListener('mouseover', function() {
-      console.log('Hover');
-    });
-  }
+    certEles = document.getElementsByClassName('cert');
+  
+    for(let j = 0; j < certEles.length; j++) {
+      certEles[j].addEventListener('mouseover', showCertMeaning);
+      certEles[j].addEventListener('mouseleave', hideCertMeaning);
+      certEles[j].addEventListener('click', selectCert);      
+    }
+  }, function(error) {
+    console.error(`Error: ${error}`);
+  });
   
 })
 
-function getCerts() {
-  $.getJSON(`https://api.themoviedb.org/3/certification/movie/list?api_key=${API_KEY}`, function(data) {
+let certPromise = new Promise(function(resolve, reject) {
 
+  $.getJSON(`https://api.themoviedb.org/3/certification/movie/list?api_key=${API_KEY}`, function(data) {
+    
     // Get certifications for GB - returns array of objects
     let certs = data.certifications.GB;
-
+    
     // Loop through certs to put in order and push to GBCerts array
     for(let i = 1; i <= certs.length; i++) {
       let x = certs.filter((obj) => obj.order == i);
       GBCerts.push(...x);
     }
-
+    
     // Append certification to DOM
     GBCerts.map(ele => {
-      $('#certSelect').append(`<li class='cert'>${ele.certification}<span class='certDescription'>${ele.meaning}</span></li>`);
+      $('#certSelect').append(`<li class='cert' data-certValue='${ele.certification}'>${ele.certification}<span class='certDescription'>${ele.meaning}</span></li>`);
     })
-  })    
-}
+  })
+
+  // It's hacky and I don't like it but my promise gets rejected otherwise
+  if(true) {
+    resolve('Yay')
+  } else {
+    reject('Boo');
+  }
+})
 
 // Show certification meaning, to be fired on mouseover
-//function showCertMeaning() {
-//  console.log('Hover');
-//}
+function showCertMeaning() {
+  let certText = this.getElementsByClassName('certDescription')[0];
+  certText.style.display = 'block';
+}
 
+function hideCertMeaning() {
+  let certText = this.getElementsByClassName('certDescription')[0];
+  certText.style.display = 'none';
+}
 
-
+function selectCert() {
+  console.log(this.dataset.certvalue);
+}
 
 
 /*

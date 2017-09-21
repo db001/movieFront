@@ -1,5 +1,4 @@
 .searchContainer {
-  border-bottom: 1px solid $font-color;
 
   .selectArea {
 
@@ -14,8 +13,12 @@
 
         .certDescription {
           display: none;
+          position: relative;
           width: 75%;
         }
+      }
+      .cert:hover {
+        text-shadow: 0px 0px 2px blue;
       }
     }
   }    
