@@ -13,8 +13,13 @@
 
         .certDescription {
           display: none;
-          position: relative;
+          text-shadow: none;
+          position: absolute;
+          left: 0;
+          right: 0;
           width: 75%;
+          text-align: justify;
+          margin: auto;
         }
       }
       .cert:hover {
@@ -22,4 +27,8 @@
       }
     }
   }    
+}
+
+.active {
+  text-shadow: 0 0 2px red;
 }
