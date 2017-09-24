@@ -1,13 +1,13 @@
-const API_KEY = `removed`;
+const API_KEY = `API key removed`;
 
 let GBCerts = [];
 let certEles = [];
 
 // `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&region=GB&sort_by=popularity.desc&certification_country=GB&certification=18&include_adult=false&include_video=false&page=1`
 
-const baseURL = `https://api.themoviedb.org/discover/movie?api_key=${API_KEY}&language=en-US&region=GB`;
+const baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&region=GB&sort_by=popularity.desc`;
 
-let certURL;
+let certURL = `&certification_country=GB&certification=`;
 
 $(document).ready(function() {
   
@@ -46,6 +46,7 @@ let certPromise = new Promise(function(resolve, reject) {
   })
 
   // It's hacky and I don't like it but my promise gets rejected otherwise
+  // To do: practice Promises
   if(true) {
     resolve('Yay')
   } else {
@@ -65,12 +66,20 @@ function hideCertMeaning() {
 }
 
 function selectCert() {
-  certURL= `&certification_country=GB&certification=${this.dataset.certvalue}`;
-  console.log(certURL);
-  GBCerts.forEach(function(ele) {
+  let lesserCerts = document.getElementById('includeLesserCerts');
+  let certURL = `&certification_country=GB&certification`;
+  if(lesserCerts.checked) {
+    certURL += `.lte=${this.dataset.certvalue}`;
+  } else {
+    certURL += `=${this.dataset.certvalue}`;
+  }
+  Array.from(document.getElementsByClassName('cert')).forEach(function(ele) {
     ele.classList.remove('active');
   });
   this.classList.add('active');
+
+  let reqURL = `${baseURL}${certURL}`;
+  console.log(reqURL);
 }
 
 /*
