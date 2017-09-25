@@ -7,6 +7,8 @@ let certEles = [];
 
 const baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&region=GB&sort_by=popularity.desc`;
 
+let certURL = '';
+
 $(document).ready(function() {
   
   certPromise.then(function() {
@@ -23,9 +25,17 @@ $(document).ready(function() {
   });
 
   genrePromise.then(function() {
-    console.log('Genres done');
-  }
-  
+    let genreElements = document.getElementsByClassName('genre');
+
+    for (let j = 0; j < genreElements.length; j++) {
+      genreElements[j].addEventListener('click', selectGenre);
+    }
+  }, function(error) {
+    console.error(`Genre: ${error}`);
+  })
+
+  $('#searchButton').click(searchForFilms);  
+  $('#resetButton').click(reset);
 })
 
 let certPromise = new Promise(function(resolve, reject) {
@@ -62,35 +72,42 @@ function showCertMeaning() {
   certText.style.display = 'block';
 }
 
+// Hide certification meaning on mouseleave
 function hideCertMeaning() {
   let certText = this.getElementsByClassName('certDescription')[0];
   certText.style.display = 'none';
 }
 
+// Let user select a certification and return URL addition
 function selectCert() {
   let lesserCerts = document.getElementById('includeLesserCerts');
-  let certURL = `&certification_country=GB&certification`;
+  certURL = `&certification_country=GB&certification`;
+
+  // Check to see if user wants certifications lower than selection included
   if(lesserCerts.checked) {
     certURL += `.lte=${this.dataset.certvalue}`;
   } else {
     certURL += `=${this.dataset.certvalue}`;
   }
+
+  // Add active class to selected certification
   Array.from(document.getElementsByClassName('cert')).forEach(function(ele) {
     ele.classList.remove('active');
   });
   this.classList.add('active');
-
-  let reqURL = `${baseURL}${certURL}`;
-  console.log(reqURL);
 }
 
 let genrePromise = new Promise(function(resolve, reject) {
 
   $.getJSON(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`, function(data) {
     
-    // Get certifications for GB - returns array of objects
+    // Get genres with ids - returns array of objects
     let genres = data.genres;
-    console.log(genres);
+
+    // Add genres to DOM
+    genres.map(ele => {
+      $('#genreSelect').append(`<li class='genre' data-genreId='${ele.id}'>${ele.name}</li>`);
+    })
   })
 
   if(true) {
@@ -100,6 +117,41 @@ let genrePromise = new Promise(function(resolve, reject) {
   }
 });
 
+function selectGenre() {
+  $(this).toggleClass('active');
+}
+
+function searchForFilms() {
+  let selectedGenres = $('.genre.active');
+  let genreURL = '';
+
+  if (selectedGenres.length >= 1) {
+    genreURL = `&with_genres=${selectedGenres[0].dataset.genreid}`;
+    for (let k = 1; k < selectedGenres.length; k++) {
+      genreURL += `,${selectedGenres[k].dataset.genreid}`
+    }
+  }
+
+  let searchURL = baseURL + certURL + genreURL;
+
+  $.getJSON(searchURL, function(data) {
+    console.log(data.results);
+    let movieResults = data.results;
+    
+    movieResults.map(ele => {
+      $('.results').append(`<div class="result">${ele.original_title}</div><p>${ele.overview}</p>`)
+    })
+  });
+  
+}
+
+function reset() {
+  $('.active').each(function() {
+    $(this).removeClass('active');  
+  })
+}
+
+/*
 
 function showSlides(n) {
   let slides = document.getElementsByClassName('mySlides');
@@ -126,3 +178,5 @@ next.addEventListener('click', function() {
 prev.addEventListener('click', function() {
   showSlides(slideIndex -= 1);
 });
+
+*/

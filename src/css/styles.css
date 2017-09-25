@@ -17,25 +17,38 @@ h1 {
 #mainHead {
   padding: 15px; }
 
-.searchContainer .selectArea #certSelect {
-  display: flex;
-  list-style: none; }
-  .searchContainer .selectArea #certSelect .cert {
-    text-align: center;
-    width: 50px;
-    cursor: pointer; }
-    .searchContainer .selectArea #certSelect .cert .certDescription {
-      display: none;
-      text-shadow: none;
-      position: absolute;
-      left: 0;
-      right: 0;
-      width: 75%;
-      text-align: justify;
-      margin: auto;
-      font-size: 12px; }
-  .searchContainer .selectArea #certSelect .cert:hover {
-    text-shadow: 0px 0px 2px blue; }
+.searchContainer .selectArea {
+  padding: 10px; }
+  .searchContainer .selectArea #certSelect, .searchContainer .selectArea #genreSelect {
+    display: flex;
+    list-style: none; }
+    .searchContainer .selectArea #certSelect .cert, .searchContainer .selectArea #genreSelect .cert {
+      text-align: center;
+      width: 50px;
+      cursor: pointer; }
+      .searchContainer .selectArea #certSelect .cert .certDescription, .searchContainer .selectArea #genreSelect .cert .certDescription {
+        display: none;
+        text-shadow: none;
+        position: absolute;
+        left: 0;
+        right: 0;
+        width: 75%;
+        text-align: justify;
+        margin: auto;
+        font-size: 12px;
+        background-color: white;
+        padding: 5px;
+        border: 1px solid grey;
+        border-radius: 5px; }
+    .searchContainer .selectArea #certSelect .cert:hover, .searchContainer .selectArea #certSelect .genre:hover, .searchContainer .selectArea #genreSelect .cert:hover, .searchContainer .selectArea #genreSelect .genre:hover {
+      text-shadow: 0px 0px 2px blue; }
+  .searchContainer .selectArea #genreSelect {
+    flex-wrap: wrap; }
+    .searchContainer .selectArea #genreSelect .genre {
+      padding: 0 20px;
+      cursor: pointer; }
+.searchContainer .selectArea > div {
+  margin-bottom: 25px; }
 
 .active {
   text-shadow: 0 0 2px red; }

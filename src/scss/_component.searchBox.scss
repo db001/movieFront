@@ -2,7 +2,9 @@
 
   .selectArea {
 
-    #certSelect {
+    padding: 10px;
+
+    #certSelect, #genreSelect {
       display: flex;
       list-style: none;
 
@@ -21,13 +23,29 @@
           text-align: justify;
           margin: auto;
           font-size: 12px;
+          background-color: white;
+          padding: 5px;
+          border: 1px solid grey;
+          border-radius: 5px;
         }
       }
-      .cert:hover {
+      .cert:hover, .genre:hover {
         text-shadow: 0px 0px 2px blue;
       }
     }
-  }    
+
+    #genreSelect {
+      flex-wrap: wrap;
+      .genre {
+        padding: 0 20px;
+        cursor: pointer;
+      }
+    }
+  }
+  
+  .selectArea > div {
+    margin-bottom: 25px;
+  }
 }
 
 .active {

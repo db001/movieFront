@@ -25,12 +25,24 @@
 
     <section class="searchContainer">
         <div class="selectArea">
-            <div>Choose a certification
+            <div id="certification">Choose a certification
                 <ul id="certSelect"></ul>
-                <label>Include lower certificate films</label>
+                <label>Include lower certificate films?</label>
                 <input type="checkbox" name="lesserCerts" value="false" id="includeLesserCerts">
-            </div>      
+            </div> 
+            <div id="genres">
+                Choose a genre
+                <ul id="genreSelect"></ul>
+            </div>
+            <button type="submit" id="searchButton">Search</button>
+            <button type="reset" id="resetButton">Reset</button>     
+            
         </div>
+
+    </section>
+
+    <section class="results">
+
     </section>
 
     <script
