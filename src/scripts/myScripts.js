@@ -1,4 +1,4 @@
-const API_KEY = `API key removed`;
+const API_KEY = `REMOVED`;
 
 let GBCerts = [];
 let certEles = [];
@@ -6,8 +6,6 @@ let certEles = [];
 // `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&region=GB&sort_by=popularity.desc&certification_country=GB&certification=18&include_adult=false&include_video=false&page=1`
 
 const baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&region=GB&sort_by=popularity.desc`;
-
-let certURL = `&certification_country=GB&certification=`;
 
 $(document).ready(function() {
   
@@ -23,6 +21,10 @@ $(document).ready(function() {
   }, function(error) {
     console.error(`Error: ${error}`);
   });
+
+  genrePromise.then(function() {
+    console.log('Genres done');
+  }
   
 })
 
@@ -47,7 +49,7 @@ let certPromise = new Promise(function(resolve, reject) {
 
   // It's hacky and I don't like it but my promise gets rejected otherwise
   // To do: practice Promises
-  if(true) {
+  if(certEles.length == 0) {
     resolve('Yay')
   } else {
     reject('Boo');
@@ -82,7 +84,23 @@ function selectCert() {
   console.log(reqURL);
 }
 
-/*
+let genrePromise = new Promise(function(resolve, reject) {
+
+  $.getJSON(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`, function(data) {
+    
+    // Get certifications for GB - returns array of objects
+    let genres = data.genres;
+    console.log(genres);
+  })
+
+  if(true) {
+    resolve('Yay');
+  } else {
+    reject('Boo');
+  }
+});
+
+
 function showSlides(n) {
   let slides = document.getElementsByClassName('mySlides');
 
@@ -108,5 +126,3 @@ next.addEventListener('click', function() {
 prev.addEventListener('click', function() {
   showSlides(slideIndex -= 1);
 });
-
-*/
