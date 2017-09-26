@@ -53,6 +53,9 @@ h1 {
 .active {
   text-shadow: 0 0 2px red; }
 
+.results {
+  padding: 10px; }
+
 .container {
   display: flex;
   align-items: center;

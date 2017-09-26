@@ -5,9 +5,10 @@ let certEles = [];
 
 // `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&region=GB&sort_by=popularity.desc&certification_country=GB&certification=18&include_adult=false&include_video=false&page=1`
 
-const baseURL = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&region=GB&sort_by=popularity.desc`;
+const baseURL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&language=en-US&region=GB`;
 
 let certURL = '';
+let yearURL = '';
 
 $(document).ready(function() {
   
@@ -59,6 +60,7 @@ let certPromise = new Promise(function(resolve, reject) {
 
   // It's hacky and I don't like it but my promise gets rejected otherwise
   // To do: practice Promises
+
   if(certEles.length == 0) {
     resolve('Yay')
   } else {
@@ -110,15 +112,21 @@ let genrePromise = new Promise(function(resolve, reject) {
     })
   })
 
+  /* eslint-disable */
   if(true) {
     resolve('Yay');
   } else {
     reject('Boo');
   }
+  /* eslint-enable */  
 });
 
 function selectGenre() {
   $(this).toggleClass('active');
+}
+
+function getReleaseYear() {  
+  yearURL = `&primary_release_year=`;
 }
 
 function searchForFilms() {
@@ -133,13 +141,14 @@ function searchForFilms() {
   }
 
   let searchURL = baseURL + certURL + genreURL;
+  console.log(searchURL);
 
   $.getJSON(searchURL, function(data) {
     console.log(data.results);
     let movieResults = data.results;
     
     movieResults.map(ele => {
-      $('.results').append(`<div class="result">${ele.original_title}</div><p>${ele.overview}</p>`)
+      $('.results').append(`<div class="result">${ele.title}</div><p>${ele.overview}</p>`)
     })
   });
   
