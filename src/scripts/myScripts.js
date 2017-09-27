@@ -8,7 +8,7 @@ let certEles = [];
 const baseURL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&language=en-US&region=GB`;
 
 let certURL = '';
-let yearURL = '';
+// let yearURL = '';
 
 $(document).ready(function() {
   
@@ -125,11 +125,28 @@ function selectGenre() {
   $(this).toggleClass('active');
 }
 
-function getReleaseYear() {  
-  yearURL = `&primary_release_year=`;
+function getReleaseYear(year) {
+  // primary_release_date.gte
+  // primary_release_date.lte
+
+  let yearsBefore = $('#yearsBefore')[0];
+  let yearsAfter = $('#yearsAfter')[0];
+
+  if (year && yearsBefore.checked && !yearsAfter.checked) {
+    return `&primary_release_date.lte=${year}-12-31`;
+  } else if (year && yearsAfter.checked && !yearsBefore.checked) {
+    return `&primary_release_date.gte=${year}-01-01`;
+  } else if (year) {
+    return `&primary_release_year=${year}`;
+  } else {
+    return '';
+  } 
 }
 
 function searchForFilms() {
+
+  $('.results').empty();
+
   let selectedGenres = $('.genre.active');
   let genreURL = '';
 
@@ -140,24 +157,34 @@ function searchForFilms() {
     }
   }
 
-  let searchURL = baseURL + certURL + genreURL;
+  let yearURL = getReleaseYear($('#releaseYearInput').val());
+
+
+  let searchURL = baseURL + certURL + genreURL + yearURL;
   console.log(searchURL);
 
   $.getJSON(searchURL, function(data) {
     console.log(data.results);
     let movieResults = data.results;
-    
-    movieResults.map(ele => {
-      $('.results').append(`<div class="result">${ele.title}</div><p>${ele.overview}</p>`)
-    })
-  });
-  
+
+    if (data.results.length === 0) {
+      $('.results').append(`<div>No results match your search</div>`);
+    } else {
+      movieResults.map(ele => {
+        $('.results').append(`<div class="film-title">${ele.title}</div><p class="film_description">${ele.overview}</p>`);
+      })
+    }    
+  });  
 }
 
 function reset() {
   $('.active').each(function() {
     $(this).removeClass('active');  
-  })
+  });
+  $('#releaseYearInput').val('') === 0;
+
+  $('#yearsBefore').prop('checked', false);
+  $('#yearsAfter').prop('checked', false);
 }
 
 /*
