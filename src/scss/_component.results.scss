@@ -1,3 +1,17 @@
 .results {
     padding: 10px;
+    .result {
+        margin: 15px 0;
+        display: flex;
+        img {
+            align-self: center;
+            padding-right: 15px;
+        }
+        .film_title {
+            margin-bottom: 0;
+        }
+        .film_description {
+            font-size: 13px;
+        }
+    }
 }

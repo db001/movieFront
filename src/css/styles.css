@@ -11,6 +11,10 @@ html, body {
   background: #fff;
   color: #000; }
 
+* {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0; }
+
 h1 {
   font-family: "Bungee Hairline", sans-serif; }
 
@@ -55,6 +59,16 @@ h1 {
 
 .results {
   padding: 10px; }
+  .results .result {
+    margin: 15px 0;
+    display: flex; }
+    .results .result img {
+      align-self: center;
+      padding-right: 15px; }
+    .results .result .film_title {
+      margin-bottom: 0; }
+    .results .result .film_description {
+      font-size: 13px; }
 
 .container {
   display: flex;

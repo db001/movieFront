@@ -8,7 +8,6 @@ let certEles = [];
 const baseURL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&language=en-US&region=GB`;
 
 let certURL = '';
-// let yearURL = '';
 
 $(document).ready(function() {
   
@@ -82,12 +81,15 @@ function hideCertMeaning() {
 
 // Let user select a certification and return URL addition
 function selectCert() {
-  let lesserCerts = document.getElementById('includeLesserCerts');
+  let lesserCerts = $('#includeLesserCerts')[0];
+  let higherCerts = $('#includeHigherCerts')[0];
   certURL = `&certification_country=GB&certification`;
 
   // Check to see if user wants certifications lower than selection included
-  if(lesserCerts.checked) {
+  if(lesserCerts.checked && !higherCerts.checked) {
     certURL += `.lte=${this.dataset.certvalue}`;
+  } else if (!lesserCerts.checked && higherCerts.checked) {
+    certURL += `.gte=${this.dataset.certvalue}`;
   } else {
     certURL += `=${this.dataset.certvalue}`;
   }
@@ -164,14 +166,20 @@ function searchForFilms() {
   console.log(searchURL);
 
   $.getJSON(searchURL, function(data) {
-    console.log(data.results);
     let movieResults = data.results;
 
     if (data.results.length === 0) {
       $('.results').append(`<div>No results match your search</div>`);
     } else {
       movieResults.map(ele => {
-        $('.results').append(`<div class="film-title">${ele.title}</div><p class="film_description">${ele.overview}</p>`);
+        $('.results').append(`
+          <div class="result" data-film_id="${ele.id}">
+            <img src="https://image.tmdb.org/t/p/w92/${ele.poster_path}">
+            <div>
+              <h4 class="film-title">${ele.title}</h4>
+              <p class="film_description">${ele.overview}</p>
+            </div>
+          </div>`);
       })
     }    
   });  
@@ -185,6 +193,10 @@ function reset() {
 
   $('#yearsBefore').prop('checked', false);
   $('#yearsAfter').prop('checked', false);
+  $('#includeLesserCerts').prop('checked', false);
+  $('#includeHigherCerts').prop('checked', false);
+  
+  certURL = '';
 }
 
 /*
