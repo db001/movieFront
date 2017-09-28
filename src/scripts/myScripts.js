@@ -36,7 +36,16 @@ $(document).ready(function() {
 
   $('#searchButton').click(searchForFilms);  
   $('#resetButton').click(reset);
+
+  $('.dropdownArrow').each(function() {
+    $(this).on('click', function() {
+      $('.dropdown').slideToggle('slow', function() {
+        console.log('Toggle complete');
+      })
+    })
+  })    
 })
+// End of document ready
 
 let certPromise = new Promise(function(resolve, reject) {
 
@@ -198,6 +207,7 @@ function reset() {
   
   certURL = '';
 }
+
 
 /*
 

@@ -25,24 +25,31 @@
 
     <section class="searchContainer">
         <div class="selectArea">
-            <div id="certification">Choose a certification
-                <ul id="certSelect"></ul>
-                <label>Include lower certificate films?</label>
-                <input type="checkbox" name="lesserCerts" value="false" id="includeLesserCerts">
-                <label>Include higher certificate films?</label>
-                <input type="checkbox" name="higherCerts" value="false" id="includeHigherCerts">
+            <div id="certification">Choose a certification<span class="dropdownArrow" id="js-certDropdown">&#9660;</span>
+                <div class="dropdown">
+                    <ul id="certSelect"></ul>
+                    <label>Include lower certificate films?</label>
+                    <input type="checkbox" name="lesserCerts" value="false" id="includeLesserCerts">
+                    <label>Include higher certificate films?</label>
+                    <input type="checkbox" name="higherCerts" value="false" id="includeHigherCerts">
+                </div>
             </div> 
             <div id="genres">
-                Choose a genre
-                <ul id="genreSelect"></ul>
+                Choose a genre<span class="dropdownArrow" id="js-genreDropdown">&#9660;</span>
+                <div class="dropdown">
+                    <ul id="genreSelect"></ul>
+                </div>
             </div>
             <div id="releaseYear">
-                Release year:
-                <input type="number" name="releaseYear" placeholder="2017" id="releaseYearInput" min="0" max="2017"> 
-                <label>Include years before?</label>
-                <input type="checkbox" name="yearsBefore" value="false" id="yearsBefore">
-                <label>Include years after?</label>
-                <input type="checkbox" name="yearsAfter" value="false" id="yearsAfter">
+                Choose a year<span class="dropdownArrow" id="js-yearDropdown">&#9660;</span>
+                <div class="dropdown">
+                    <label>Release year</label>
+                    <input type="number" name="releaseYear" placeholder="2017" id="releaseYearInput" min="0" max="2017"> 
+                    <label>Include years before?</label>
+                    <input type="checkbox" name="yearsBefore" value="false" id="yearsBefore">
+                    <label>Include years after?</label>
+                    <input type="checkbox" name="yearsAfter" value="false" id="yearsAfter">
+                </div>
             </div>
             <button type="submit" id="searchButton">Search</button>
             <button type="reset" id="resetButton">Reset</button>     
