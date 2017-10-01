@@ -2,3 +2,14 @@
 h1 {
     font-family: $headline-font;
 }
+fieldset {
+    border: none;
+}
+
+input[type=number] {
+    border-radius: 5px;
+    border-color: $font-color;
+    background-color: $bg-color;
+    color: $font-color;
+    text-align: right;
+}

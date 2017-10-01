@@ -23,32 +23,41 @@
 
     <h1 id="mainHead">Find a film</h1>
 
+    <div id="imageBar"></div>
+
     <section class="searchContainer">
         <div class="selectArea">
-            <div id="certification">Choose a certification<span class="dropdownArrow" id="js-certDropdown">&#9660;</span>
+
+            <div id="certification">Choose a certification<span class="dropdownArrow">&#9660;</span>
                 <div class="dropdown">
                     <ul id="certSelect"></ul>
-                    <label>Include lower certificate films?</label>
-                    <input type="checkbox" name="lesserCerts" value="false" id="includeLesserCerts">
-                    <label>Include higher certificate films?</label>
-                    <input type="checkbox" name="higherCerts" value="false" id="includeHigherCerts">
+                    <fieldset>
+                        <label>Include lower certificate films?</label>
+                        <input class="checkbox" type="checkbox" name="lesserCerts" value="false"id="includeLesserCerts">
+                        <label>Include higher certificate films?</label>
+                        <input class="checkbox" type="checkbox" name="higherCerts" value="false" id="includeHigherCerts">
+                    </fieldset>                    
                 </div>
-            </div> 
+            </div>
+
             <div id="genres">
-                Choose a genre<span class="dropdownArrow" id="js-genreDropdown">&#9660;</span>
+                Choose a genre<span class="dropdownArrow">&#9660;</span>
                 <div class="dropdown">
                     <ul id="genreSelect"></ul>
                 </div>
             </div>
+
             <div id="releaseYear">
-                Choose a year<span class="dropdownArrow" id="js-yearDropdown">&#9660;</span>
+                Choose a year<span class="dropdownArrow">&#9660;</span>
                 <div class="dropdown">
                     <label>Release year</label>
-                    <input type="number" name="releaseYear" placeholder="2017" id="releaseYearInput" min="0" max="2017"> 
-                    <label>Include years before?</label>
-                    <input type="checkbox" name="yearsBefore" value="false" id="yearsBefore">
-                    <label>Include years after?</label>
-                    <input type="checkbox" name="yearsAfter" value="false" id="yearsAfter">
+                    <input type="number" name="releaseYear" id="releaseYearInput" min="0" max="2017">
+                    <fieldset class="beforeAfterYears">
+                        <label>Include years before?</label>
+                        <input class="checkbox" type="checkbox" name="yearsBefore" value="false" id="yearsBefore">
+                        <label>Include years after?</label>
+                        <input class="checkbox" type="checkbox" name="yearsAfter" value="false" id="yearsAfter">
+                    </fieldset>
                 </div>
             </div>
             <button type="submit" id="searchButton">Search</button>

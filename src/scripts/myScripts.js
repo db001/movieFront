@@ -3,8 +3,6 @@ const API_KEY = `REMOVED`;
 let GBCerts = [];
 let certEles = [];
 
-// `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&language=en-US&region=GB&sort_by=popularity.desc&certification_country=GB&certification=18&include_adult=false&include_video=false&page=1`
-
 const baseURL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&language=en-US&region=GB`;
 
 let certURL = '';
@@ -37,13 +35,10 @@ $(document).ready(function() {
   $('#searchButton').click(searchForFilms);  
   $('#resetButton').click(reset);
 
-  $('.dropdownArrow').each(function() {
-    $(this).on('click', function() {
-      $('.dropdown').slideToggle('slow', function() {
-        console.log('Toggle complete');
-      })
+  $('.dropdownArrow').on('click', function() {
+    $(this).next().slideToggle('slow', function() {
     })
-  })    
+  })   
 })
 // End of document ready
 
@@ -172,7 +167,6 @@ function searchForFilms() {
 
 
   let searchURL = baseURL + certURL + genreURL + yearURL;
-  console.log(searchURL);
 
   $.getJSON(searchURL, function(data) {
     let movieResults = data.results;

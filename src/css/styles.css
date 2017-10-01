@@ -8,7 +8,7 @@ html, body {
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
   box-sizing: border-box;
-  background: #fff;
+  background: #bbb;
   color: #000; }
 
 * {
@@ -18,11 +18,25 @@ html, body {
 h1 {
   font-family: "Bungee Hairline", sans-serif; }
 
+fieldset {
+  border: none; }
+
+input[type=number] {
+  border-radius: 5px;
+  border-color: #000;
+  background-color: #bbb;
+  color: #000;
+  text-align: right; }
+
 #mainHead {
   padding: 15px; }
 
 .searchContainer .selectArea {
   padding: 10px; }
+  .searchContainer .selectArea .dropdownArrow {
+    cursor: pointer; }
+  .searchContainer .selectArea .dropdown {
+    display: none; }
   .searchContainer .selectArea #certSelect, .searchContainer .selectArea #genreSelect {
     display: flex;
     list-style: none; }
@@ -51,14 +65,13 @@ h1 {
     .searchContainer .selectArea #genreSelect .genre {
       padding: 0 20px;
       cursor: pointer; }
+  .searchContainer .selectArea #releaseYear .dropdown {
+    margin-left: 60px; }
 .searchContainer .selectArea > div {
   margin-bottom: 25px; }
 
 .active {
   text-shadow: 0 0 2px red; }
-
-.dropdownArrow {
-  cursor: pointer; }
 
 .results {
   padding: 10px; }
