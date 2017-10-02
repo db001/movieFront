@@ -38,7 +38,10 @@ $(document).ready(function() {
   $('.dropdownArrow').on('click', function() {
     $(this).next().slideToggle('slow', function() {
     })
-  })   
+  })
+
+  $('.result').on('click', showMovie);
+    
 })
 // End of document ready
 
@@ -185,7 +188,11 @@ function searchForFilms() {
           </div>`);
       })
     }    
-  });  
+  });
+
+  certURL = '';  
+
+  $('.dropdown').slideUp('slow');
 }
 
 function reset() {
@@ -198,10 +205,19 @@ function reset() {
   $('#yearsAfter').prop('checked', false);
   $('#includeLesserCerts').prop('checked', false);
   $('#includeHigherCerts').prop('checked', false);
+
+  $('.results').empty();
+
+  $('.dropdown').slideUp('slow');
   
   certURL = '';
 }
 
+// Get movie url = https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}&language=en-US
+
+function showMovie() {
+  console.log("Clicked");
+}
 
 /*
 
