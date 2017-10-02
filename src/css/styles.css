@@ -79,7 +79,8 @@ input[type=number] {
   padding: 10px; }
   .results .result {
     margin: 15px 0;
-    display: flex; }
+    display: flex;
+    cursor: pointer; }
     .results .result img {
       align-self: center;
       padding-right: 15px; }
