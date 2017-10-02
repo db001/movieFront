@@ -193,7 +193,28 @@ function searchForFilms() {
   certURL = '';  
 
   $('.dropdown').slideUp('slow');
+
+  $('.results').on('click', '.result', showMovie)
+
 }
+
+// Get movie url = https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}&language=en-US
+
+function showMovie(e) {
+  let filmId = e.currentTarget.dataset.film_id;
+  let filmURL = `https://api.themoviedb.org/3/movie/${filmId}?api_key=${API_KEY}&language=en-US`;
+  $.getJSON(filmURL, function (data) {
+      $('#movieModal').append(`
+        <div class="modal-content">
+          <span class="close">x</span>
+          <h4 id="model-heading">${data.original_title}</h4>
+          <p id="model-description">Bacon ipsum dolor amet ham pork belly kevin, ball tip jerky tenderloin meatloaf bresaola drumstick meatball corned beef. Pancetta shank drumstick capicola, jerky kevin strip steak filet mignon swine</p>
+        </div>
+      `)
+    }
+  );
+}
+
 
 function reset() {
   $('.active').each(function() {
@@ -211,12 +232,6 @@ function reset() {
   $('.dropdown').slideUp('slow');
   
   certURL = '';
-}
-
-// Get movie url = https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}&language=en-US
-
-function showMovie() {
-  console.log("Clicked");
 }
 
 /*
