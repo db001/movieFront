@@ -1,4 +1,4 @@
-const API_KEY = `019825fa58fb7940e7912b45ae59d036`;
+const API_KEY = `REMOVED`;
 
 let GBCerts = [];
 let certEles = [];
