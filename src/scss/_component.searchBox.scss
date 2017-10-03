@@ -1,7 +1,8 @@
 .searchContainer {
+  width: $desktop-width;
+  margin: auto;
 
   .selectArea {
-    padding: 10px;
 
     .dropdownArrow {
       cursor: pointer;

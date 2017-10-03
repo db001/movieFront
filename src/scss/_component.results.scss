@@ -1,7 +1,12 @@
 .results {
     padding: 10px;
+    width: $desktop-width;
+    margin: auto;
     .result {
         margin: 15px 0;
+        border: 1px solid $font-color;
+        border-radius: 5px;
+        padding: 5px;
         display: flex;
         cursor: pointer;
         img {
