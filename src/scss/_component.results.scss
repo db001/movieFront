@@ -2,22 +2,23 @@
     padding: 10px;
     width: $desktop-width;
     margin: auto;
+    display: flex;
+    flex-wrap: wrap;
     .result {
-        margin: 15px 0;
-        border: 1px solid $font-color;
-        border-radius: 5px;
-        padding: 5px;
-        display: flex;
+        width: 32%;
         cursor: pointer;
-        img {
-            align-self: center;
-            padding-right: 15px;
-        }
-        .film_title {
-            margin-bottom: 0;
-        }
-        .film_description {
-            font-size: 13px;
-        }
+        margin: 10px 0;
+        div {
+            display: flex;
+            flex-direction: column;
+            img {
+                width: 92px;
+                margin: auto;
+            }
+            .film-title {
+                text-align: center;
+            }
+        }       
+        
     }
 }

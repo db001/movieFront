@@ -1,4 +1,4 @@
-const API_KEY = `REMOVED`;
+const API_KEY = `019825fa58fb7940e7912b45ae59d036`;
 
 let GBCerts = [];
 let certEles = [];
@@ -180,10 +180,9 @@ function searchForFilms() {
       movieResults.map(ele => {
         $('.results').append(`
           <div class="result" data-film_id="${ele.id}">
-            <img src="https://image.tmdb.org/t/p/w92/${ele.poster_path}">
             <div>
+              <img src="https://image.tmdb.org/t/p/w92/${ele.poster_path}">
               <h4 class="film-title">${ele.title}</h4>
-              <p class="film_description">${ele.overview}</p>
             </div>
           </div>`);
       })
@@ -210,16 +209,22 @@ function showMovie(e) {
   console.log(filmURL);
   $.getJSON(filmURL, function(data) {
     $('body').append(`
-    <div id="movieModal">    
-      <div class="modal-content">            
-        <img src="https://image.tmdb.org/t/p/w92/${data.poster_path}">
-        <div class="modalText">
-          <h4 id="model-heading">${data.original_title}</h4>
-          <h5>${data.tagline}</h5>
-          <p id="model-description">${data.overview}</p>
+    <div id="movieModal">  
+      <div class="modal-content">
+        <div class="movie-headlines">            
+          <div><img src="https://image.tmdb.org/t/p/w92/${data.poster_path}"></div>
+          <div class="modalText">
+            <h4 id="model-heading">${data.original_title}</h4>
+            <h5>${data.tagline}</h5>
+            <p id="model-description">${data.overview}</p>
+          </div>
+          <span class="close">x</span>                  
         </div>
-        <span class="close">x</span>
-      </div>
+        <div class="movie-details">
+          <p>${data.production_companies[0].name}</p>
+          <a class="movie-link" href="${data.homepage}" target="_blank">Homepage</p>
+        </div>
+      </div>          
     </div>`);
 
     $('#movieModal').show();

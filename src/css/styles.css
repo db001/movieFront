@@ -79,21 +79,21 @@ input[type=number] {
 .results {
   padding: 10px;
   width: 75%;
-  margin: auto; }
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap; }
   .results .result {
-    margin: 15px 0;
-    border: 1px solid #222;
-    border-radius: 5px;
-    padding: 5px;
-    display: flex;
-    cursor: pointer; }
-    .results .result img {
-      align-self: center;
-      padding-right: 15px; }
-    .results .result .film_title {
-      margin-bottom: 0; }
-    .results .result .film_description {
-      font-size: 13px; }
+    width: 32%;
+    cursor: pointer;
+    margin: 10px 0; }
+    .results .result div {
+      display: flex;
+      flex-direction: column; }
+      .results .result div img {
+        width: 92px;
+        margin: auto; }
+      .results .result div .film-title {
+        text-align: center; }
 
 .container {
   display: flex;
@@ -131,23 +131,33 @@ input[type=number] {
   height: 100%;
   background-color: black;
   background-color: rgba(0, 0, 0, 0.5); }
-  #movieModal img {
-    width: 100%;
-    padding-right: 15px; }
   #movieModal .modal-content {
     background-color: #ccc;
-    display: flex;
-    margin: 150px auto;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 150px;
     width: 60%;
     padding: 20px;
     border-radius: 0 20px 0 20px; }
+    #movieModal .modal-content .movie-headlines {
+      display: flex; }
+    #movieModal .modal-content .movie-details {
+      border-top: 1px solid #222;
+      margin-top: 15px;
+      padding: 5px 0;
+      display: flex;
+      justify-content: space-between; }
+    #movieModal .modal-content img {
+      width: 92px;
+      padding-right: 15px; }
     #movieModal .modal-content .modalText h5 {
       padding-bottom: 20px; }
   #movieModal .close {
     float: right;
     font-size: 20px;
     font-weight: bold;
-    margin-top: -10px; }
+    margin-top: -10px;
+    align-self: flex-start; }
   #movieModal .close:hover, #movieModal .close:focus {
     cursor: pointer;
     color: #fff; }
