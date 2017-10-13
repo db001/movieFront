@@ -1,0 +1,22 @@
+.searchContainer {
+  .selectArea {
+    #certification {
+      ul {
+        list-style-type: none;
+        .cert {
+          display: inline-block;
+          padding: 20px;
+        }
+        .certDescription {
+          display: none;
+        }
+      }
+    }
+    #genres {
+
+    }
+    #releaseYear {
+
+    }
+  }
+}

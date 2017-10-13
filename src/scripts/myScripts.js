@@ -35,10 +35,10 @@ $(document).ready(function() {
   $('#searchButton').click(searchForFilms);  
   $('#resetButton').click(reset);
 
-  $('.dropdownArrow').on('click', function() {
-    $(this).next().slideToggle('slow', function() {
-    })
-  })
+  // $('.dropdownArrow').on('click', function() {
+  //   $(this).next().slideToggle('slow', function() {
+  //   })
+  // })
 
   $('.result').on('click', showMovie);
     
@@ -64,7 +64,6 @@ let certPromise = new Promise(function(resolve, reject) {
     })
   })
 
-  // It's hacky and I don't like it but my promise gets rejected otherwise
   // To do: practice Promises
 
   if(certEles.length == 0) {
