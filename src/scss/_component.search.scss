@@ -1,22 +1,49 @@
 .searchContainer {
+  border-bottom: 3px solid white;
+  padding: 10px;
   .selectArea {
+    width: $mobile-width;
+    margin: auto;
     #certification {
-      ul {
-        list-style-type: none;
+      border-bottom: 1px solid white;
+      #certSelect {
+        display: flex;
+        justify-content: space-between;
         .cert {
-          display: inline-block;
-          padding: 20px;
+          width: 15%;
+          padding: 10px;
+          text-align: center;
         }
         .certDescription {
           display: none;
+          position: fixed;
+          width: $mobile-width;
+          margin: auto;
+          left: 5%;
+          margin-top: 10px;
+          padding: 10px;
+          background-color: $font-color;
+          color: $bg-color;
+          text-align: justify;
         }
       }
     }
-    #genres {
-
+    #genres {   
+      border-bottom: 1px solid white; 
+      #genreSelect {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .genre {       
+          width: 33%;
+          padding-bottom: 5px;
+          text-align: center;
+        }
+      }
     }
     #releaseYear {
-
+  
     }
   }
 }

@@ -60,7 +60,7 @@ let certPromise = new Promise(function(resolve, reject) {
     
     // Append certification to DOM
     GBCerts.map(ele => {
-      $('#certSelect').append(`<li class='cert' data-certValue='${ele.certification}'>${ele.certification}<span class='certDescription'>${ele.meaning}</span></li>`);
+      $('#certSelect').append(`<div class='cert' data-certValue='${ele.certification}'>${ele.certification}<span class='certDescription'>${ele.meaning}</span></div>`);
     })
   })
 
@@ -116,7 +116,7 @@ let genrePromise = new Promise(function(resolve, reject) {
 
     // Add genres to DOM
     genres.map(ele => {
-      $('#genreSelect').append(`<li class='genre' data-genreId='${ele.id}'>${ele.name}</li>`);
+      $('#genreSelect').append(`<div class='genre' data-genreId='${ele.id}'>${ele.name}</div>`);
     })
   })
 

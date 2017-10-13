@@ -23,48 +23,47 @@
 
     <h1 id="mainHead">Find a film</h1>
 
-    <div id="imageBar"></div>
-
     <section class="searchContainer">
         <div class="selectArea">
-
-            <div id="certification">Choose a certification
-                <ul id="certSelect">
+            <div id="certification">
+                <h4>Choose a certification</h4>
+                <div id="certSelect">
                     <!-- Added in JS
                     <li class='cert' data-certValue='certification'>
                         certification
                         <span class='certDescription'>meaning</span>
                     </li>
                     -->
-                </ul>
-
+                </div>
                 <fieldset>
-                    <label>Include lower certificate films?</label>
+                    <p>Include other certificates?</p>
+                    <label>Lower</label>
                     <input class="checkbox" type="checkbox" name="lesserCerts" value="false"id="includeLesserCerts">
-                    <label>Include higher certificate films?</label>
+                    <label>Higher</label>
                     <input class="checkbox" type="checkbox" name="higherCerts" value="false" id="includeHigherCerts">
                 </fieldset> 
             </div>
 
             <div id="genres">
-                Choose a genre
-                <div class="dropdown">
-                    <ul id="genreSelect"></ul>
+                <h4>Choose a genre</h4>
+                <div id="genreSelect">
+                    <!--
+                    <div class='genre' data-genreId='${ele.id}'>${ele.name}</div>
+                    -->
                 </div>
             </div>
 
             <div id="releaseYear">
-                Choose a year
-                <div class="dropdown">
-                    <label>Release year</label>
-                    <input type="number" name="releaseYear" id="releaseYearInput" min="0" max="2017">
-                    <fieldset class="beforeAfterYears">
-                        <label>Include years before?</label>
-                        <input class="checkbox" type="checkbox" name="yearsBefore" value="false" id="yearsBefore">
-                        <label>Include years after?</label>
-                        <input class="checkbox" type="checkbox" name="yearsAfter" value="false" id="yearsAfter">
-                    </fieldset>
-                </div>
+                <h4>Choose a year</h4>
+                <label>Release year</label>
+                <input type="number" name="releaseYear" id="releaseYearInput" min="0" max="2017">
+                <fieldset class="beforeAfterYears">
+                    <p>Include:</p>
+                    <label>Previous years</label>
+                    <input class="checkbox" type="checkbox" name="yearsBefore" value="false" id="yearsBefore">
+                    <label>Following years</label>
+                    <input class="checkbox" type="checkbox" name="yearsAfter" value="false" id="yearsAfter">
+                </fieldset>
             </div>
             <button type="submit" id="searchButton">Search</button>
             <button type="reset" id="resetButton">Reset</button>     
@@ -77,7 +76,7 @@
     <section class="results">
 
         <div id="movieModal">
-            <p>Test</p>
+            <p>Modal</p>
         </div>
 
     </section>
