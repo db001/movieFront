@@ -6,11 +6,16 @@ html, body {
     font-family: $main-font;
     -webkit-margin-before: 0;
     -webkit-margin-after: 0;
-    box-sizing: border-box;
     background: $bg-color;
     color: $font-color;
 }
 * {
     -webkit-margin-before: 0;
     -webkit-margin-after: 0; 
+    box-sizing: border-box;
+}
+
+.active {
+    font-weight: bolder;
+    text-shadow: 1px 1px 2px $font-color;
 }
