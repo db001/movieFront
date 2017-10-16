@@ -28,7 +28,7 @@
             <div id="certification">
                 <h4>Choose a certification</h4>
                 <div id="certSelect">
-                    <!-- Added in JS
+                    <!-- Added by JS
                     <li class='cert' data-certValue='certification'>
                         certification
                         <span class='certDescription'>meaning</span>
@@ -47,7 +47,7 @@
             <div id="genres">
                 <h4>Choose a genre</h4>
                 <div id="genreSelect">
-                    <!--
+                    <!-- added by JS
                     <div class='genre' data-genreId='${ele.id}'>${ele.name}</div>
                     -->
                 </div>
@@ -75,11 +75,40 @@
 
     <section class="results">
 
-        <div id="movieModal">
-            <p>Modal</p>
+        <!-- Added by JS
+        <div class="result" data-film_id="${ele.id}">
+            <div>
+                <img src="https://image.tmdb.org/t/p/w92/${ele.poster_path}">
+                <h4 class="film-title">${ele.title}</h4>
+            </div>
         </div>
+        -->
 
     </section>
+
+        <div id="movieModal">
+            <!-- Added by JS
+            <div id="movieModal">  
+                <div class="modal-content">
+                    <div class="movie-headlines">          
+                    <div><img src="https://image.tmdb.org/t/p/w92/${data.poster_path}"></div>
+                    <div class="modalText">
+                        <h4 id="model-heading">Title</h4>
+                        <h5>Tagline</h5>
+                        <p id="model-description">Overview</p>
+                    </div>
+                    <span class="close">x</span>                  
+                    </div>
+                    <div class="movie-details">
+                    <p>${data.production_companies[0].name}</p>
+                    <a class="movie-link" href="${data.homepage}" target="_blank">Homepage</p>
+                    </div>
+                </div>          
+            </div>
+            -->
+        </div>
+
+
 
     <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"

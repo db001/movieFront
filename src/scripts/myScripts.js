@@ -180,7 +180,7 @@ function searchForFilms() {
         $('.results').append(`
           <div class="result" data-film_id="${ele.id}">
             <div>
-              <img src="https://image.tmdb.org/t/p/w92/${ele.poster_path}">
+              <img src="https://image.tmdb.org/t/p/w342/${ele.poster_path}">
               <h4 class="film-title">${ele.title}</h4>
             </div>
           </div>`);
@@ -207,6 +207,8 @@ function showMovie(e) {
   let filmURL = `https://api.themoviedb.org/3/movie/${filmId}?api_key=${API_KEY}&language=en-US`;
   console.log(filmURL);
   $.getJSON(filmURL, function(data) {
+    let year = data.release_date.match(/^\d+/g);
+    console.log(year);
     $('body').append(`
     <div id="movieModal">  
       <div class="modal-content">
@@ -215,6 +217,7 @@ function showMovie(e) {
           <div class="modalText">
             <h4 id="model-heading">${data.original_title}</h4>
             <h5>${data.tagline}</h5>
+            <h6>${year}</h6>
             <p id="model-description">${data.overview}</p>
           </div>
           <span class="close">x</span>                  

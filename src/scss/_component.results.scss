@@ -1,24 +1,22 @@
 .results {
-    padding: 10px;
+    padding-top: 10px;
     width: $desktop-width;
-    margin: auto;
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    margin: auto;
+
     .result {
-        width: 32%;
-        cursor: pointer;
         margin: 10px 0;
         div {
             display: flex;
             flex-direction: column;
             img {
-                width: 92px;
+                width: 70%;
                 margin: auto;
             }
             .film-title {
                 text-align: center;
             }
-        }       
-        
+        }
     }
 }
