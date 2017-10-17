@@ -15,12 +15,22 @@
     align-items: center;
     margin: 0 auto;
     margin-top: 150px;
-    width: 60%;
+    width: 80%;
     padding: 20px;
     border-radius: 0 20px 0 20px;
 
     .movie-headlines {
       display: flex;
+      margin-bottom: 10px;
+      align-items: center;
+
+      h4 {
+        line-height: 20px;
+      }
+    }
+
+    #modal-description {
+      line-height: 18px;
     }
     
     .movie-details {
@@ -29,6 +39,11 @@
       padding: 5px 0;
       display: flex;
       justify-content: space-between;
+
+      .movie-link {
+        text-decoration: none;
+        color: #fff;
+      }
     }
 
     img {
@@ -37,9 +52,6 @@
     }
 
     .modalText {
-      h5 {
-        padding-bottom: 20px;
-      }
     }
   }   
   .close {
@@ -54,4 +66,5 @@
     cursor: pointer;
     color: #fff;
   }
+
 }

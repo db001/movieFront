@@ -7,16 +7,26 @@
 
     .result {
         margin: 10px 0;
+        background-color: #fff;
+        padding: 20px 0 10px 0;
+        box-shadow: 0 2px 5px $font-color;
+        transition: transform 0.5s;
         div {
             display: flex;
             flex-direction: column;
             img {
                 width: 70%;
                 margin: auto;
+                padding-bottom: 10px;
+
             }
             .film-title {
+                padding-top: 5px;
                 text-align: center;
             }
         }
     }
+    // .result:hover {
+    //     transform: scale(1.1);
+    // }
 }

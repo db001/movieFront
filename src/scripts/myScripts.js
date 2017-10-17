@@ -205,23 +205,23 @@ function showMovie(e) {
   $('#movieModal').remove();
   let filmId = e.currentTarget.dataset.film_id;
   let filmURL = `https://api.themoviedb.org/3/movie/${filmId}?api_key=${API_KEY}&language=en-US`;
-  console.log(filmURL);
+  // console.log(filmURL);
   $.getJSON(filmURL, function(data) {
     let year = data.release_date.match(/^\d+/g);
-    console.log(year);
+    // console.log(year);
     $('body').append(`
     <div id="movieModal">  
       <div class="modal-content">
         <div class="movie-headlines">            
           <div><img src="https://image.tmdb.org/t/p/w92/${data.poster_path}"></div>
           <div class="modalText">
-            <h4 id="model-heading">${data.original_title}</h4>
-            <h5>${data.tagline}</h5>
-            <h6>${year}</h6>
-            <p id="model-description">${data.overview}</p>
+            <h3 id="modal-heading">${data.original_title}</h3>
+            <h4>${data.tagline}</h4>
+            <h6>${year}</h6>           
           </div>
-          <span class="close">x</span>                  
+        <span class="close">x</span>                     
         </div>
+        <p id="modal-description">${data.overview}</p>  
         <div class="movie-details">
           <p>${data.production_companies[0].name}</p>
           <a class="movie-link" href="${data.homepage}" target="_blank">Homepage</p>

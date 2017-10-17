@@ -1,19 +1,17 @@
 @import url("https://fonts.googleapis.com/css?family=Open+Sans");
 @import url("https://fonts.googleapis.com/css?family=Titillium+Web");
 @import url("https://fonts.googleapis.com/css?family=Bungee+Hairline|Jura:500");
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: "Titillium Web", sans-serif;
-  -webkit-margin-before: 0;
-  -webkit-margin-after: 0;
-  background: #bbb;
-  color: #222; }
-
 * {
   -webkit-margin-before: 0;
   -webkit-margin-after: 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+html, body {
+  font-family: "Titillium Web", sans-serif;
+  background: #bbb;
+  color: #222; }
 
 .active {
   font-weight: bolder;
@@ -71,14 +69,20 @@ fieldset {
   flex-direction: column;
   margin: auto; }
   .results .result {
-    margin: 10px 0; }
+    margin: 10px 0;
+    background-color: #fff;
+    padding: 20px 0 10px 0;
+    box-shadow: 0 2px 5px #222;
+    transition: transform 0.5s; }
     .results .result div {
       display: flex;
       flex-direction: column; }
       .results .result div img {
         width: 70%;
-        margin: auto; }
+        margin: auto;
+        padding-bottom: 10px; }
       .results .result div .film-title {
+        padding-top: 5px;
         text-align: center; }
 
 /* Modal CSS */
@@ -97,22 +101,29 @@ fieldset {
     align-items: center;
     margin: 0 auto;
     margin-top: 150px;
-    width: 60%;
+    width: 80%;
     padding: 20px;
     border-radius: 0 20px 0 20px; }
     #movieModal .modal-content .movie-headlines {
-      display: flex; }
+      display: flex;
+      margin-bottom: 10px;
+      align-items: center; }
+      #movieModal .modal-content .movie-headlines h4 {
+        line-height: 20px; }
+    #movieModal .modal-content #modal-description {
+      line-height: 18px; }
     #movieModal .modal-content .movie-details {
       border-top: 1px solid #222;
       margin-top: 15px;
       padding: 5px 0;
       display: flex;
       justify-content: space-between; }
+      #movieModal .modal-content .movie-details .movie-link {
+        text-decoration: none;
+        color: #fff; }
     #movieModal .modal-content img {
       width: 92px;
       padding-right: 15px; }
-    #movieModal .modal-content .modalText h5 {
-      padding-bottom: 20px; }
   #movieModal .close {
     float: right;
     font-size: 20px;
