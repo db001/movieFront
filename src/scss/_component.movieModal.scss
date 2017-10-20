@@ -17,20 +17,37 @@
     margin-top: 150px;
     width: 80%;
     padding: 20px;
-    border-radius: 0 20px 0 20px;
+    border-radius: 0 20px 0 20px;   
 
     .movie-headlines {
       display: flex;
       margin-bottom: 10px;
       align-items: center;
+      // border: 1px solid $font-color;
+      padding: 5px;
+      background-color: #fff;
+      box-shadow: 1px 1px 3px $font-color;
 
       h4 {
         line-height: 20px;
       }
     }
 
+    .close {
+      float: right;
+      font-size: 20px;
+      font-weight: bold;
+      margin-left: -50px;
+    }
+    .close:hover, .close:focus {
+      cursor: pointer;
+      color: #fff;
+    }    
+
     #modal-description {
       line-height: 18px;
+      overflow-y: auto;
+      height: 150px;
     }
     
     .movie-details {
@@ -43,6 +60,7 @@
       .movie-link {
         text-decoration: none;
         color: #fff;
+        text-shadow: 1px 1px 2px $font-color;
       }
     }
 
@@ -50,21 +68,7 @@
       width: 92px;
       padding-right: 15px;
     }
-
-    .modalText {
-    }
   }   
-  .close {
-    float: right;
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: -10px;
-    align-self: flex-start;
-
-  }
-  .close:hover, .close:focus {
-    cursor: pointer;
-    color: #fff;
-  }
+  
 
 }

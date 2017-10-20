@@ -212,14 +212,14 @@ function showMovie(e) {
     $('body').append(`
     <div id="movieModal">  
       <div class="modal-content">
-        <div class="movie-headlines">            
+        <span class="close">x</span>         
+        <div class="movie-headlines">
           <div><img src="https://image.tmdb.org/t/p/w92/${data.poster_path}"></div>
           <div class="modalText">
             <h3 id="modal-heading">${data.original_title}</h3>
             <h4>${data.tagline}</h4>
-            <h6>${year}</h6>           
-          </div>
-        <span class="close">x</span>                     
+            <h6>${year}</h6>                      
+          </div>                     
         </div>
         <p id="modal-description">${data.overview}</p>  
         <div class="movie-details">

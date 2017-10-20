@@ -107,11 +107,24 @@ fieldset {
     #movieModal .modal-content .movie-headlines {
       display: flex;
       margin-bottom: 10px;
-      align-items: center; }
+      align-items: center;
+      padding: 5px;
+      background-color: #fff;
+      box-shadow: 1px 1px 3px #222; }
       #movieModal .modal-content .movie-headlines h4 {
         line-height: 20px; }
+    #movieModal .modal-content .close {
+      float: right;
+      font-size: 20px;
+      font-weight: bold;
+      margin-left: -50px; }
+    #movieModal .modal-content .close:hover, #movieModal .modal-content .close:focus {
+      cursor: pointer;
+      color: #fff; }
     #movieModal .modal-content #modal-description {
-      line-height: 18px; }
+      line-height: 18px;
+      overflow-y: auto;
+      height: 150px; }
     #movieModal .modal-content .movie-details {
       border-top: 1px solid #222;
       margin-top: 15px;
@@ -120,18 +133,10 @@ fieldset {
       justify-content: space-between; }
       #movieModal .modal-content .movie-details .movie-link {
         text-decoration: none;
-        color: #fff; }
+        color: #fff;
+        text-shadow: 1px 1px 2px #222; }
     #movieModal .modal-content img {
       width: 92px;
       padding-right: 15px; }
-  #movieModal .close {
-    float: right;
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: -10px;
-    align-self: flex-start; }
-  #movieModal .close:hover, #movieModal .close:focus {
-    cursor: pointer;
-    color: #fff; }
 
 /*# sourceMappingURL=styles.css.map */
