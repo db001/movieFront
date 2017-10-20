@@ -10,28 +10,34 @@
 
 html, body {
   font-family: "Titillium Web", sans-serif;
-  background: #bbb;
-  color: #222; }
+  background: #0E0E10;
+  color: #ddddee; }
 
 .active {
   font-weight: bolder;
-  text-shadow: 1px 1px 2px #222; }
+  text-shadow: 1px 1px 4px #0E40aa; }
 
 fieldset {
   border: none; }
 
+h1, h2, h3, h4, h5, h6 {
+  color: #0E40aa; }
+
 #mainHead {
   width: 90%;
-  margin: auto; }
+  margin: auto;
+  color: #0E40aa; }
 
 .searchContainer {
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid #0E40aa;
   padding: 10px; }
   .searchContainer .selectArea {
     width: 90%;
     margin: auto; }
     .searchContainer .selectArea #certification {
-      border-bottom: 1px solid white; }
+      border-bottom: 1px solid #0E40aa;
+      margin-bottom: 10px;
+      padding-bottom: 10px; }
       .searchContainer .selectArea #certification #certSelect {
         display: flex;
         justify-content: space-between; }
@@ -47,11 +53,13 @@ fieldset {
           left: 5%;
           margin-top: 10px;
           padding: 10px;
-          background-color: #222;
-          color: #bbb;
+          background-color: #ddddee;
+          color: #0E0E10;
           text-align: justify; }
     .searchContainer .selectArea #genres {
-      border-bottom: 1px solid white; }
+      border-bottom: 1px solid #0E40aa;
+      margin-bottom: 10px;
+      padding-bottom: 10px; }
       .searchContainer .selectArea #genres #genreSelect {
         display: flex;
         flex-direction: row;
@@ -61,6 +69,22 @@ fieldset {
           width: 33%;
           padding-bottom: 5px;
           text-align: center; }
+    .searchContainer .selectArea #releaseYear {
+      border-bottom: 1px solid #0E40aa;
+      margin-bottom: 10px;
+      padding-bottom: 10px; }
+      .searchContainer .selectArea #releaseYear fieldset {
+        margin: 5px 0 10px 0; }
+  .searchContainer .btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; }
+    .searchContainer .btn-container .btn {
+      padding: 5px;
+      background-color: #0E0E10;
+      color: #0E40aa;
+      border: none;
+      font-size: 20px; }
 
 .results {
   padding-top: 10px;
@@ -70,9 +94,8 @@ fieldset {
   margin: auto; }
   .results .result {
     margin: 10px 0;
-    background-color: #fff;
     padding: 20px 0 10px 0;
-    box-shadow: 0 2px 5px #222;
+    box-shadow: 0 2px 5px #0E40aa;
     transition: transform 0.5s; }
     .results .result div {
       display: flex;
@@ -97,46 +120,59 @@ fieldset {
   background-color: black;
   background-color: rgba(0, 0, 0, 0.5); }
   #movieModal .modal-content {
-    background-color: #ccc;
+    background-color: #ddddee;
+    color: #0E0E10;
     align-items: center;
     margin: 0 auto;
     margin-top: 150px;
     width: 80%;
-    padding: 20px;
-    border-radius: 0 20px 0 20px; }
+    box-shadow: 1px 1px 6px #0E40aa; }
     #movieModal .modal-content .movie-headlines {
+      position: relative;
       display: flex;
       margin-bottom: 10px;
       align-items: center;
-      padding: 5px;
-      background-color: #fff;
-      box-shadow: 1px 1px 3px #222; }
-      #movieModal .modal-content .movie-headlines h4 {
-        line-height: 20px; }
+      background-color: #0E0E10;
+      color: #ddddee; }
+      #movieModal .modal-content .movie-headlines #modal-heading {
+        line-height: 20px;
+        margin-bottom: 5px;
+        font-weight: bolder; }
+      #movieModal .modal-content .movie-headlines p {
+        line-height: 18px;
+        margin-bottom: 5px; }
+      #movieModal .modal-content .movie-headlines #modal-year {
+        font-size: 14px; }
     #movieModal .modal-content .close {
-      float: right;
+      color: #0E40aa;
+      position: absolute;
+      right: 10px;
+      top: 0;
       font-size: 20px;
-      font-weight: bold;
-      margin-left: -50px; }
+      font-weight: bold; }
     #movieModal .modal-content .close:hover, #movieModal .modal-content .close:focus {
       cursor: pointer;
       color: #fff; }
     #movieModal .modal-content #modal-description {
       line-height: 18px;
       overflow-y: auto;
-      height: 150px; }
+      height: 150px;
+      padding: 10px 15px;
+      text-align: justify; }
     #movieModal .modal-content .movie-details {
-      border-top: 1px solid #222;
+      background-color: #0E0E10;
+      color: #ddddee;
       margin-top: 15px;
-      padding: 5px 0;
+      padding: 5px 10px;
       display: flex;
-      justify-content: space-between; }
-      #movieModal .modal-content .movie-details .movie-link {
-        text-decoration: none;
-        color: #fff;
-        text-shadow: 1px 1px 2px #222; }
+      justify-content: space-between;
+      font-size: 14px; }
     #movieModal .modal-content img {
       width: 92px;
       padding-right: 15px; }
+    #movieModal .modal-content a {
+      text-decoration: none;
+      color: #ddddee;
+      text-shadow: 1px 1px 2px #0E0E10; }
 
 /*# sourceMappingURL=styles.css.map */

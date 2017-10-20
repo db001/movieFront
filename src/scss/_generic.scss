@@ -9,12 +9,12 @@
 }
 html, body {
     font-family: $main-font;
-    background: $bg-color;
+    background: $darkest;
     color: $font-color;
 }
 
 
 .active {
     font-weight: bolder;
-    text-shadow: 1px 1px 2px $font-color;
+    text-shadow: 1px 1px 4px $headings-color;
 }

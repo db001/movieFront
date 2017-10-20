@@ -208,23 +208,22 @@ function showMovie(e) {
   // console.log(filmURL);
   $.getJSON(filmURL, function(data) {
     let year = data.release_date.match(/^\d+/g);
-    // console.log(year);
     $('body').append(`
     <div id="movieModal">  
-      <div class="modal-content">
-        <span class="close">x</span>         
+      <div class="modal-content">                 
         <div class="movie-headlines">
+          <span class="close">x</span>
           <div><img src="https://image.tmdb.org/t/p/w92/${data.poster_path}"></div>
           <div class="modalText">
             <h3 id="modal-heading">${data.original_title}</h3>
-            <h4>${data.tagline}</h4>
-            <h6>${year}</h6>                      
+            <p>${data.tagline}</p>
+            <p id="modal-year"><em>${year}</em></p>                      
           </div>                     
         </div>
         <p id="modal-description">${data.overview}</p>  
         <div class="movie-details">
           <p>${data.production_companies[0].name}</p>
-          <a class="movie-link" href="${data.homepage}" target="_blank">Homepage</p>
+          ${data.homepage ? '<a class="movie-link" href="' + data.homepage + '" target="_blank">Homepage</a>' : ''}          
         </div>
       </div>          
     </div>`);

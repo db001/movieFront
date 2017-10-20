@@ -1,11 +1,13 @@
 .searchContainer {
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid $headings-color;
   padding: 10px;
   .selectArea {
     width: $mobile-width;
     margin: auto;
     #certification {
-      border-bottom: 1px solid white;
+      border-bottom: 1px solid $headings-color;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
       #certSelect {
         display: flex;
         justify-content: space-between;
@@ -23,13 +25,15 @@
           margin-top: 10px;
           padding: 10px;
           background-color: $font-color;
-          color: $bg-color;
+          color: $darkest;
           text-align: justify;
         }
       }
     }
     #genres {   
-      border-bottom: 1px solid white; 
+      border-bottom: 1px solid $headings-color;
+      margin-bottom: 10px;
+      padding-bottom: 10px;
       #genreSelect {
         display: flex;
         flex-direction: row;
@@ -43,7 +47,24 @@
       }
     }
     #releaseYear {
-  
+      border-bottom: 1px solid $headings-color;
+      margin-bottom: 10px;
+      padding-bottom: 10px;      
+      fieldset {
+        margin: 5px 0 10px 0;
+      }
     }
   }
+  .btn-container {    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    .btn {
+      padding: 5px;
+      background-color: $darkest;
+      color: $headings-color;
+      border: none;
+      font-size: 20px;
+    }
+  }
+  
 }
