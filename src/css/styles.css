@@ -13,6 +13,17 @@ html, body {
   background: #0E0E10;
   color: #ddddee; }
 
+@media (min-width: 900px) {
+  body {
+    background-image: url("http://www.52dazhew.com/data/out/12/585433305-all-movie-wallpapers.jpg");
+    background-attachment: fixed; }
+
+  .body-container {
+    width: 65%;
+    margin: auto;
+    background: #0E0E10;
+    opacity: 0.85;
+    height: 100vh; } }
 .active {
   font-weight: bolder;
   text-shadow: 1px 1px 4px #0E40aa; }
@@ -44,7 +55,8 @@ h1, h2, h3, h4, h5, h6 {
         .searchContainer .selectArea #certification #certSelect .cert {
           width: 15%;
           padding: 10px;
-          text-align: center; }
+          text-align: center;
+          cursor: pointer; }
         .searchContainer .selectArea #certification #certSelect .certDescription {
           display: none;
           position: fixed;
@@ -68,7 +80,8 @@ h1, h2, h3, h4, h5, h6 {
         .searchContainer .selectArea #genres #genreSelect .genre {
           width: 33%;
           padding-bottom: 5px;
-          text-align: center; }
+          text-align: center;
+          cursor: pointer; }
     .searchContainer .selectArea #releaseYear {
       border-bottom: 1px solid #0E40aa;
       margin-bottom: 10px;
@@ -84,11 +97,12 @@ h1, h2, h3, h4, h5, h6 {
       background-color: #0E0E10;
       color: #0E40aa;
       border: none;
-      font-size: 20px; }
+      font-size: 20px;
+      cursor: pointer; }
 
 .results {
   padding-top: 10px;
-  width: 75%;
+  width: 65%;
   display: flex;
   flex-direction: column;
   margin: auto; }
@@ -103,7 +117,8 @@ h1, h2, h3, h4, h5, h6 {
       .results .result div img {
         width: 70%;
         margin: auto;
-        padding-bottom: 10px; }
+        padding-bottom: 10px;
+        cursor: pointer; }
       .results .result div .film-title {
         padding-top: 5px;
         text-align: center; }

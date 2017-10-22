@@ -7,11 +7,27 @@
     margin: 0;
     padding: 0;
 }
+
 html, body {
     font-family: $main-font;
     background: $darkest;
     color: $font-color;
 }
+
+@include for-tablet-landscape-up {
+    body {
+        background-image: url('http://www.52dazhew.com/data/out/12/585433305-all-movie-wallpapers.jpg');
+        background-attachment: fixed;
+    }
+    .body-container {
+        width: $desktop-width;
+        margin: auto;
+        background: $darkest;
+        opacity: 0.85;
+        height: 100vh;
+    }
+}
+
 
 
 .active {

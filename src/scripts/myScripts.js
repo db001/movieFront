@@ -35,11 +35,6 @@ $(document).ready(function() {
   $('#searchButton').click(searchForFilms);  
   $('#resetButton').click(reset);
 
-  // $('.dropdownArrow').on('click', function() {
-  //   $(this).next().slideToggle('slow', function() {
-  //   })
-  // })
-
   $('.result').on('click', showMovie);
     
 })

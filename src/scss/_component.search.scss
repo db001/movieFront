@@ -15,6 +15,7 @@
           width: 15%;
           padding: 10px;
           text-align: center;
+          cursor: pointer;
         }
         .certDescription {
           display: none;
@@ -43,6 +44,7 @@
           width: 33%;
           padding-bottom: 5px;
           text-align: center;
+          cursor: pointer;
         }
       }
     }
@@ -64,6 +66,7 @@
       color: $headings-color;
       border: none;
       font-size: 20px;
+      cursor: pointer;
     }
   }
   
