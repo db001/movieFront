@@ -11,6 +11,7 @@
       #certSelect {
         display: flex;
         justify-content: space-between;
+        position: relative;
         .cert {
           width: 15%;
           padding: 10px;
@@ -19,7 +20,7 @@
         }
         .certDescription {
           display: none;
-          position: fixed;
+          position: absolute;
           width: $mobile-width;
           margin: auto;
           left: 5%;

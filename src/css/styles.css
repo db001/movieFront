@@ -16,7 +16,8 @@ html, body {
 @media (min-width: 900px) {
   body {
     background-image: url("http://www.52dazhew.com/data/out/12/585433305-all-movie-wallpapers.jpg");
-    background-attachment: fixed; }
+    background-attachment: fixed;
+    background-size: cover; }
 
   .body-container {
     width: 65%;
@@ -51,7 +52,8 @@ h1, h2, h3, h4, h5, h6 {
       padding-bottom: 10px; }
       .searchContainer .selectArea #certification #certSelect {
         display: flex;
-        justify-content: space-between; }
+        justify-content: space-between;
+        position: relative; }
         .searchContainer .selectArea #certification #certSelect .cert {
           width: 15%;
           padding: 10px;
@@ -59,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
           cursor: pointer; }
         .searchContainer .selectArea #certification #certSelect .certDescription {
           display: none;
-          position: fixed;
+          position: absolute;
           width: 90%;
           margin: auto;
           left: 5%;

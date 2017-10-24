@@ -55,7 +55,10 @@ let certPromise = new Promise(function(resolve, reject) {
     
     // Append certification to DOM
     GBCerts.map(ele => {
-      $('#certSelect').append(`<div class='cert' data-certValue='${ele.certification}'>${ele.certification}<span class='certDescription'>${ele.meaning}</span></div>`);
+      $('#certSelect').append(`
+        <div class='cert' data-certValue='${ele.certification}'>${ele.certification}
+        </div>
+        <div class="certDescription">${ele.meaning}</div>`);
     })
   })
 
