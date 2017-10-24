@@ -1,38 +1,38 @@
 .searchContainer {
   border-bottom: 3px solid $headings-color;
-  padding: 10px;
   .selectArea {
-    width: $mobile-width;
     margin: auto;
     #certification {
+      padding: 0 10px;    
       border-bottom: 1px solid $headings-color;
       margin-bottom: 10px;
       padding-bottom: 10px;
       #certSelect {
         display: flex;
         justify-content: space-between;
-        position: relative;
         .cert {
           width: 15%;
           padding: 10px;
           text-align: center;
           cursor: pointer;
         }
-        .certDescription {
-          display: none;
-          position: absolute;
-          width: $mobile-width;
-          margin: auto;
-          left: 5%;
-          margin-top: 10px;
-          padding: 10px;
-          background-color: $font-color;
-          color: $darkest;
-          text-align: justify;
-        }
+      }
+      #certDescriptionBox {
+        display: none;
+        height: 100px;
+        width: $mobile-width;
+        border: 1px solid $headings-color;
+        margin: auto;
+        margin: 10px auto;
+        padding: 10px;
+        color: $font-color;
+        text-align: justify;
+        font-size: 13px;
+        overflow-y: auto; 
       }
     }
     #genres {   
+      padding: 0 10px;    
       border-bottom: 1px solid $headings-color;
       margin-bottom: 10px;
       padding-bottom: 10px;
@@ -50,6 +50,7 @@
       }
     }
     #releaseYear {
+      padding: 0 10px;      
       border-bottom: 1px solid $headings-color;
       margin-bottom: 10px;
       padding-bottom: 10px;      
@@ -58,7 +59,9 @@
       }
     }
   }
-  .btn-container {    width: 100%;
+  .btn-container {
+    padding: 0 20px 10px 20px;    
+    width: 100%;
     display: flex;
     justify-content: space-between;
     .btn {

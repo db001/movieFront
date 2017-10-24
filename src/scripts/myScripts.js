@@ -2,6 +2,7 @@ const API_KEY = `REMOVED`;
 
 let GBCerts = [];
 let certEles = [];
+let certDesc = [];
 
 const baseURL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&language=en-US&region=GB`;
 
@@ -15,7 +16,7 @@ $(document).ready(function() {
   
     for(let j = 0; j < certEles.length; j++) {
       certEles[j].addEventListener('mouseover', showCertMeaning);
-      certEles[j].addEventListener('mouseleave', hideCertMeaning);
+      // certEles[j].addEventListener('mouseleave', hideCertMeaning);
       certEles[j].addEventListener('click', selectCert);      
     }
   }, function(error) {
@@ -30,7 +31,10 @@ $(document).ready(function() {
     }
   }, function(error) {
     console.error(`Genre: ${error}`);
-  })
+  });
+
+  let checkCertMeanings = $('#showCertDescription')[0]; 
+  checkCertMeanings.addEventListener('click', displayCertMeanings);
 
   $('#searchButton').click(searchForFilms);  
   $('#resetButton').click(reset);
@@ -54,11 +58,11 @@ let certPromise = new Promise(function(resolve, reject) {
     }
     
     // Append certification to DOM
-    GBCerts.map(ele => {
+    GBCerts.map((ele, idx) => {
       $('#certSelect').append(`
-        <div class='cert' data-certValue='${ele.certification}'>${ele.certification}
-        </div>
-        <div class="certDescription">${ele.meaning}</div>`);
+        <div class='cert' data-certValue='${ele.certification}' data-certNumber='${idx}'>${ele.certification}
+        </div>`);
+      certDesc.push(ele.meaning);
     })
   })
 
@@ -71,17 +75,31 @@ let certPromise = new Promise(function(resolve, reject) {
   }
 })
 
+// Show certification meanings box depending on checkbox
+function displayCertMeanings() {
+  let certCheckBox = $('#showCertDescription')[0];
+  if(certCheckBox.checked) {
+    $('#certDescriptionBox').slideDown('slow');
+  } else {
+    $('#certDescriptionBox').slideUp('slow', function() {
+      $('#certDescriptionBox').text('Hover over a certification to show its meaning');
+    });
+  }   
+}
+
 // Show certification meaning, to be fired on mouseover
 function showCertMeaning() {
-  let certText = this.getElementsByClassName('certDescription')[0];
-  certText.style.display = 'block';
+  let certCheckBox = $('#showCertDescription')[0];
+  let certNumber = this.dataset.certnumber;
+  if(certCheckBox.checked) {
+    $('#certDescriptionBox').text(certDesc[certNumber]);    
+  }
 }
 
 // Hide certification meaning on mouseleave
-function hideCertMeaning() {
-  let certText = this.getElementsByClassName('certDescription')[0];
-  certText.style.display = 'none';
-}
+// function hideCertMeaning() {
+//   $('#certDescriptionBox').text('');
+// }
 
 // Let user select a certification and return URL addition
 function selectCert() {
@@ -188,8 +206,6 @@ function searchForFilms() {
 
   certURL = '';  
 
-  $('.dropdown').slideUp('slow');
-
   $('.results').on('click', '.result', showMovie);
   $('body').on('click', '.close', function() {
     $('#movieModal').hide();
@@ -206,6 +222,11 @@ function showMovie(e) {
   // console.log(filmURL);
   $.getJSON(filmURL, function(data) {
     let year = data.release_date.match(/^\d+/g);
+
+    // Film may not have listed production company or homepage
+    let production_co = data.production_companies.length !== 0 ? data.production_companies[0].name : '';
+    let homepage = data.homepage != '' ? data.homepage : '';
+
     $('body').append(`
     <div id="movieModal">  
       <div class="modal-content">                 
@@ -220,8 +241,8 @@ function showMovie(e) {
         </div>
         <p id="modal-description">${data.overview}</p>  
         <div class="movie-details">
-          <p>${data.production_companies[0].name}</p>
-          ${data.homepage ? '<a class="movie-link" href="' + data.homepage + '" target="_blank">Homepage</a>' : ''}          
+          <p>${production_co}</p>
+          <a class="movie-link" href="${homepage}" target="_blank">Homepage</a>         
         </div>
       </div>          
     </div>`);
@@ -246,38 +267,6 @@ function reset() {
   $('#includeHigherCerts').prop('checked', false);
 
   $('.results').empty();
-
-  $('.dropdown').slideUp('slow');
   
   certURL = '';
 }
-
-/*
-
-function showSlides(n) {
-  let slides = document.getElementsByClassName('mySlides');
-
-  if(n > slides.length) {
-    slideIndex = 1;
-  }
-  if(n < 1) {
-    slideIndex = slides.length;
-  }
-  for (let i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slides[slideIndex - 1].style.display = "flex";
-}
-
-let next = document.getElementsByClassName('next')[0];
-let prev = document.getElementsByClassName('prev')[0];
-
-next.addEventListener('click', function() {
-  showSlides(slideIndex += 1);
-});
-
-prev.addEventListener('click', function() {
-  showSlides(slideIndex -= 1);
-});
-
-*/

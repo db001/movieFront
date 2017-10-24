@@ -10,26 +10,29 @@
 
 html, body {
     font-family: $main-font;
-    background: $darkest;
     color: $font-color;
+    height: 100%;
+}
+
+.container {
+    width: 100%;
+    background: $darkest;
 }
 
 @include for-tablet-landscape-up {
-    body {
+    .body-container {
         background-image: url('http://www.52dazhew.com/data/out/12/585433305-all-movie-wallpapers.jpg');
         background-attachment: fixed;
         background-size: cover;
+        height: 100vh;
     }
-    .body-container {
+    .container {
         width: $desktop-width;
         margin: auto;
         background: $darkest;
         opacity: 0.85;
-        height: 100vh;
     }
 }
-
-
 
 .active {
     font-weight: bolder;
