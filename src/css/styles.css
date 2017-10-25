@@ -19,10 +19,10 @@ html, body {
 
 @media (min-width: 900px) {
   .body-container {
+    background-color: #0E0E10;
     background-image: url("http://www.52dazhew.com/data/out/12/585433305-all-movie-wallpapers.jpg");
     background-attachment: fixed;
-    background-size: cover;
-    height: 100vh; }
+    background-size: cover; }
 
   .container {
     width: 65%;
@@ -107,6 +107,17 @@ h1, h2, h3, h4, h5, h6 {
       border: none;
       font-size: 20px;
       cursor: pointer; }
+
+#newSearch {
+  color: #0E40aa;
+  border: 1px solid #0E40aa;
+  margin-left: 20px;
+  width: 150px;
+  padding: 5px;
+  text-align: center;
+  margin-top: -1px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px; }
 
 .results {
   padding-top: 10px;

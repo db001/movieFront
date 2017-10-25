@@ -72,6 +72,17 @@
       font-size: 20px;
       cursor: pointer;
     }
-  }
-  
+  }  
+}
+
+#newSearch {
+  color: $headings-color;
+  border: 1px solid $headings-color;
+  margin-left: 20px;
+  width: 150px;
+  padding: 5px;
+  text-align: center;
+  margin-top: -1px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
 }

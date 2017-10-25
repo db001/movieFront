@@ -21,10 +21,10 @@ html, body {
 
 @include for-tablet-landscape-up {
     .body-container {
+        background-color: $darkest;
         background-image: url('http://www.52dazhew.com/data/out/12/585433305-all-movie-wallpapers.jpg');
         background-attachment: fixed;
         background-size: cover;
-        height: 100vh;
     }
     .container {
         width: $desktop-width;

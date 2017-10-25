@@ -40,6 +40,10 @@ $(document).ready(function() {
   $('#resetButton').click(reset);
 
   $('.result').on('click', showMovie);
+
+  $('#newSearch').on('click', function() {
+    $('#searchContainer').slideDown('fast');
+  })
     
 })
 // End of document ready
@@ -95,11 +99,6 @@ function showCertMeaning() {
     $('#certDescriptionBox').text(certDesc[certNumber]);    
   }
 }
-
-// Hide certification meaning on mouseleave
-// function hideCertMeaning() {
-//   $('#certDescriptionBox').text('');
-// }
 
 // Let user select a certification and return URL addition
 function selectCert() {
@@ -209,7 +208,9 @@ function searchForFilms() {
   $('.results').on('click', '.result', showMovie);
   $('body').on('click', '.close', function() {
     $('#movieModal').hide();
-  })
+  });
+
+  $('#searchContainer').slideUp('fast');
 
 }
 
