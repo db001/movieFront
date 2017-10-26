@@ -10,28 +10,37 @@
 
 html, body {
   font-family: "Titillium Web", sans-serif;
-  color: #ddddee;
-  height: 100%; }
+  color: #ddddee; }
+
+.body-container {
+  min-height: 100vh;
+  background-color: #0E0E10; }
 
 .container {
   width: 100%;
-  background: #0E0E10; }
+  background: #0E0E10;
+  margin: auto; }
 
 @media (min-width: 900px) {
   .body-container {
-    background-color: #0E0E10;
     background-image: url("http://www.52dazhew.com/data/out/12/585433305-all-movie-wallpapers.jpg");
     background-attachment: fixed;
-    background-size: cover; }
+    background-size: cover;
+    margin: auto; }
 
   .container {
-    width: 65%;
     margin: auto;
     background: #0E0E10;
     opacity: 0.85; } }
+@media (min-width: 1200px) {
+  .container {
+    width: 65%; } }
 .active {
   font-weight: bolder;
   text-shadow: 1px 1px 4px #0E40aa; }
+
+.hidden {
+  display: none; }
 
 fieldset {
   border: none; }
@@ -40,9 +49,10 @@ h1, h2, h3, h4, h5, h6 {
   color: #0E40aa; }
 
 #mainHead {
-  width: 90%;
-  margin: auto;
-  color: #0E40aa; }
+  width: 100%;
+  padding-left: 20px;
+  color: #0E40aa;
+  border-bottom: 3px solid #0E40aa; }
 
 .searchContainer {
   border-bottom: 3px solid #0E40aa; }
@@ -117,19 +127,22 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   margin-top: -1px;
   border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px; }
+  border-bottom-left-radius: 10px;
+  cursor: pointer; }
 
+@media (min-width: 1200px) {
+  .searchContainer {
+    margin: auto; } }
 .results {
   padding-top: 10px;
-  width: 65%;
   display: flex;
   flex-direction: column;
-  margin: auto; }
+  margin: auto;
+  width: 90%; }
   .results .result {
     margin: 10px 0;
     padding: 20px 0 10px 0;
-    box-shadow: 0 2px 5px #0E40aa;
-    transition: transform 0.5s; }
+    box-shadow: 0 2px 5px #0E40aa; }
     .results .result div {
       display: flex;
       flex-direction: column; }
@@ -142,6 +155,18 @@ h1, h2, h3, h4, h5, h6 {
         padding-top: 5px;
         text-align: center; }
 
+@media (min-width: 900px) {
+  .results {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; }
+    .results .result {
+      width: 30%;
+      margin: 10px 5px; } }
+@media (min-width: 1200px) {
+  .results .result {
+    width: 20%;
+    margin: 10px 5px; } }
 /* Modal CSS */
 #movieModal {
   display: none;

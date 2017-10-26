@@ -15,7 +15,7 @@ module.exports = function(grunt) {
       },
       scripts: {
         files: ['src/**/*.js'],
-        tasks: ['eslint'],
+        tasks: ['uglify', 'eslint'],
         options: {
           spawn: false
         }      
@@ -37,7 +37,7 @@ module.exports = function(grunt) {
         }
       }
     },
-/*
+
     uglify: {
       options: {
         mangle: false
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
         }
       }
     },
-*/
+
 
     postcss: {
       options: {
@@ -101,7 +101,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-browser-sync');
   grunt.loadNpmTasks('grunt-eslint');
-  grunt.registerTask('default', ['eslint', 'sass', /*'uglify',*/ 'postcss', 'browserSync', 'watch']);
+  grunt.registerTask('default', ['eslint', 'sass', 'uglify', 'postcss', 'browserSync', 'watch']);
 
 };
 

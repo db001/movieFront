@@ -85,4 +85,11 @@
   margin-top: -1px;
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
+  cursor: pointer;
+}
+
+@include for-desktop-up {
+  .searchContainer {
+    margin: auto;
+  }
 }

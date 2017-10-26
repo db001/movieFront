@@ -1,10 +1,10 @@
-const API_KEY = `REMOVED`;
+const mmbjdb = `019825fa58fb7940e7912b45ae59d036`;
 
 let GBCerts = [];
 let certEles = [];
 let certDesc = [];
 
-const baseURL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${API_KEY}&language=en-US&region=GB`;
+const baseURL = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${mmbjdb}&language=en-US&region=GB`;
 
 let certURL = '';
 
@@ -16,7 +16,6 @@ $(document).ready(function() {
   
     for(let j = 0; j < certEles.length; j++) {
       certEles[j].addEventListener('mouseover', showCertMeaning);
-      // certEles[j].addEventListener('mouseleave', hideCertMeaning);
       certEles[j].addEventListener('click', selectCert);      
     }
   }, function(error) {
@@ -42,7 +41,9 @@ $(document).ready(function() {
   $('.result').on('click', showMovie);
 
   $('#newSearch').on('click', function() {
-    $('#searchContainer').slideDown('fast');
+    $('.searchContainer').slideDown('slow');
+    reset();
+    $('#newSearch').slideUp('slow');
   })
     
 })
@@ -50,7 +51,7 @@ $(document).ready(function() {
 
 let certPromise = new Promise(function(resolve, reject) {
 
-  $.getJSON(`https://api.themoviedb.org/3/certification/movie/list?api_key=${API_KEY}`, function(data) {
+  $.getJSON(`https://api.themoviedb.org/3/certification/movie/list?api_key=${mmbjdb}`, function(data) {
     
     // Get certifications for GB - returns array of objects
     let certs = data.certifications.GB;
@@ -95,8 +96,9 @@ function displayCertMeanings() {
 function showCertMeaning() {
   let certCheckBox = $('#showCertDescription')[0];
   let certNumber = this.dataset.certnumber;
+  let cert = this.dataset.certvalue;
   if(certCheckBox.checked) {
-    $('#certDescriptionBox').text(certDesc[certNumber]);    
+    $('#certDescriptionBox').text(cert + " - " + certDesc[certNumber]);    
   }
 }
 
@@ -124,7 +126,7 @@ function selectCert() {
 
 let genrePromise = new Promise(function(resolve, reject) {
 
-  $.getJSON(`https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`, function(data) {
+  $.getJSON(`https://api.themoviedb.org/3/genre/movie/list?api_key=${mmbjdb}&language=en-US`, function(data) {
     
     // Get genres with ids - returns array of objects
     let genres = data.genres;
@@ -144,14 +146,14 @@ let genrePromise = new Promise(function(resolve, reject) {
   /* eslint-enable */  
 });
 
+// Add styling to selected genre
 function selectGenre() {
   $(this).toggleClass('active');
 }
 
 function getReleaseYear(year) {
-  // primary_release_date.gte
-  // primary_release_date.lte
 
+  // Get checkboxes for previous and following years
   let yearsBefore = $('#yearsBefore')[0];
   let yearsAfter = $('#yearsAfter')[0];
 
@@ -170,6 +172,7 @@ function searchForFilms() {
 
   $('.results').empty();
 
+  // Add selected genres to URL
   let selectedGenres = $('.genre.active');
   let genreURL = '';
 
@@ -180,6 +183,7 @@ function searchForFilms() {
     }
   }
 
+  // Add year(s) selected to URL
   let yearURL = getReleaseYear($('#releaseYearInput').val());
 
 
@@ -210,23 +214,24 @@ function searchForFilms() {
     $('#movieModal').hide();
   });
 
-  $('#searchContainer').slideUp('fast');
+  $('.searchContainer').slideUp('slow');
+
+  if($('#newSearch').hasClass('hidden')) {
+    $('#newSearch').slideDown('slow');
+  }
 
 }
-
-// Get movie url = https://api.themoviedb.org/3/movie/${movie_id}?api_key=${API_KEY}&language=en-US
 
 function showMovie(e) {
   $('#movieModal').remove();
   let filmId = e.currentTarget.dataset.film_id;
-  let filmURL = `https://api.themoviedb.org/3/movie/${filmId}?api_key=${API_KEY}&language=en-US`;
-  // console.log(filmURL);
+  let filmURL = `https://api.themoviedb.org/3/movie/${filmId}?api_key=${mmbjdb}&language=en-US`;
   $.getJSON(filmURL, function(data) {
     let year = data.release_date.match(/^\d+/g);
 
     // Film may not have listed production company or homepage
     let production_co = data.production_companies.length !== 0 ? data.production_companies[0].name : '';
-    let homepage = data.homepage != '' ? data.homepage : '';
+    let homepage = data.homepage != '' ? '<a class="movie-link" href="' + data.homepage + '" target="_blank">Homepage</a>' : '';
 
     $('body').append(`
     <div id="movieModal">  
@@ -243,7 +248,7 @@ function showMovie(e) {
         <p id="modal-description">${data.overview}</p>  
         <div class="movie-details">
           <p>${production_co}</p>
-          <a class="movie-link" href="${homepage}" target="_blank">Homepage</a>         
+          ${homepage}         
         </div>
       </div>          
     </div>`);
@@ -253,9 +258,7 @@ function showMovie(e) {
   );
 }
 
-
-
-
+// Reset function, clear all previous changes and reset search terms
 function reset() {
   $('.active').each(function() {
     $(this).removeClass('active');  

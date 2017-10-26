@@ -1,5 +1,6 @@
 #mainHead {
-    width: $mobile-width;
-    margin: auto;
+    width: 100%;
+    padding-left: 20px;
     color: $headings-color;
+    border-bottom: 3px solid $headings-color;
 }

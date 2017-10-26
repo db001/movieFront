@@ -11,30 +11,44 @@
 html, body {
     font-family: $main-font;
     color: $font-color;
-    height: 100%;
+}
+
+.body-container {
+    min-height: 100vh;
+    background-color: $darkest;
 }
 
 .container {
     width: 100%;
     background: $darkest;
+    margin: auto;
 }
 
 @include for-tablet-landscape-up {
-    .body-container {
-        background-color: $darkest;
+    .body-container {        
         background-image: url('http://www.52dazhew.com/data/out/12/585433305-all-movie-wallpapers.jpg');
         background-attachment: fixed;
         background-size: cover;
+        margin: auto;
     }
     .container {
-        width: $desktop-width;
         margin: auto;
         background: $darkest;
         opacity: 0.85;
     }
 }
 
+@include for-desktop-up {
+    .container {
+        width: $desktop-width;
+    }
+}
+
 .active {
     font-weight: bolder;
     text-shadow: 1px 1px 4px $headings-color;
+}
+
+.hidden {
+    display: none;
 }
